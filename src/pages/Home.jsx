@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 import "./Home.css";
 import HeroSection from "../components/ui/HeroSection";
+import brandSlack from '../assets/icons/brand-slack.png';
+import usersGroup from '../assets/icons/users-group.png';
 import IconCard from "../components/ui/IconCard";
 import TextCard from "../components/ui/TextCard";
 import AboutSection from "../components/ui/AboutSection";
@@ -57,7 +59,7 @@ export default function Home() {
           {/* Card 2: Slack-Based Messaging */}
           <div className="card-2">
             <IconCard
-              icon="💬"
+              icon={<img src={brandSlack} alt="Slack" style={{width: 40, height: 40}} />}
               title="Slack-Based Messaging"
               content="Get your invite to our Slack workspace and join thousands of tech professionals in meaningful discussions, knowledge sharing, and networking."
               buttonText="Get Started"
@@ -68,7 +70,7 @@ export default function Home() {
           {/* Card 3: Hundreds of Topics */}
           <div className="card-3">
             <IconCard
-              icon="🏷️"
+              icon={<img src={usersGroup} alt="Topics" style={{width: 40, height: 40}} />}
               title="Hundreds of Topics and Interests"
               content="We have hundreds of channels organized around locations like #capetown, languages like #python, specializations like #aws, and even non-tech topics like #cooking."
             />
