@@ -114,7 +114,11 @@ Finally, please include a link to your LinkedIn, Twitter, GitHub, or another sit
         </div>
       </section>
 
-      <InviteEmailSection />
+
+        {/* Card 7: Invite Email Section */}
+        <div className="card-7">
+          <InviteEmailSection />
+        </div>
 
       <AboutSection />
       <FAQSection />

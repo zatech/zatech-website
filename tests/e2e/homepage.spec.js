@@ -17,8 +17,8 @@ test.describe('Cross-Browser Homepage Tests', () => {
       // On desktop, navigation links should be visible
       await expect(page.locator('#navbar-menu .nav-link[href="/"]')).toBeVisible();
       await expect(page.locator('#navbar-menu .nav-link[href="/report"]')).toBeVisible();
+      await expect(page.locator('#navbar-menu .nav-link[href="/sponsorship"]')).toBeVisible();
       await expect(page.locator('#navbar-menu .nav-link[href="#about"]')).toBeVisible();
-      await expect(page.locator('#navbar-menu .nav-link[href="#invite-email"]')).toBeVisible();
     }
   });
 

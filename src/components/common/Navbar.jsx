@@ -77,12 +77,36 @@ export default function Navbar({ className }) {
           >
             Home
           </Link>
-          <Link to="/report" className="nav-link" onClick={handleNavClick()}>Report</Link>
-          <Link to="/sponsorship" className="nav-link" onClick={handleNavClick()}>Sponsorship</Link>
-          <a href="#about" className="nav-link" onClick={handleSectionNav("about")}>About</a>
-          <a href="#faqs" className="nav-link" onClick={handleSectionNav("faqs")}>FAQ</a>
-          <a href="https://wiki.zatech.co.za" target="_blank" rel="noreferrer" className="nav-link" onClick={handleNavClick()}>Wiki</a>
-          <a href="https://zatech.co.za/coc" target="_blank" rel="noreferrer" className="nav-link" onClick={handleNavClick()}>Code of Conduct</a>
+          <Link to="/report" className="nav-link" onClick={handleNavClick()}>
+            Report
+          </Link>
+          <Link to="/sponsorship" className="nav-link" onClick={handleNavClick()}>
+            Sponsorship
+          </Link>
+          <a href="#about" className="nav-link" onClick={handleSectionNav("about")}>
+            About
+          </a>
+          <a href="#faqs" className="nav-link" onClick={handleSectionNav("faqs")}>
+            FAQ
+          </a>
+          <a 
+            href="https://wiki.zatech.co.za" 
+            target="_blank" 
+            rel="noreferrer" 
+            className="nav-link nav-link-external" 
+            onClick={handleNavClick()}
+          >
+            Wiki
+          </a>
+          <a 
+            href="https://zatech.co.za/coc" 
+            target="_blank" 
+            rel="noreferrer" 
+            className="nav-link nav-link-external" 
+            onClick={handleNavClick()}
+          >
+            Code of Conduct
+          </a>
         </div>
 
         <a

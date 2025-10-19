@@ -46,9 +46,9 @@ describe('Navbar', () => {
     expect(screen.getByText('ZATech')).toBeInTheDocument()
     expect(screen.getByText('Home')).toBeInTheDocument()
     expect(screen.getByText('Report')).toBeInTheDocument()
+    expect(screen.getByText('Sponsorship')).toBeInTheDocument()
     expect(screen.getByText('About')).toBeInTheDocument()
     expect(screen.getByText('FAQ')).toBeInTheDocument()
-    expect(screen.getByText('Invite')).toBeInTheDocument()
     expect(screen.getByText('Wiki')).toBeInTheDocument()
     expect(screen.getByText('Code of Conduct')).toBeInTheDocument()
     expect(screen.getByText('Request Invite →')).toBeInTheDocument()
@@ -83,23 +83,16 @@ describe('Navbar', () => {
     expect(mockElement.scrollIntoView).toHaveBeenCalledWith({ behavior: 'smooth' })
   })
 
-  it('should handle Invite link click', async () => {
+  it('should handle Sponsorship link click', async () => {
     const user = userEvent.setup()
-    
-    // Mock getElementById for smooth scrolling
-    const mockElement = { scrollIntoView: vi.fn() }
-    Object.defineProperty(document, 'getElementById', {
-      value: vi.fn(() => mockElement),
-      writable: true
-    })
     
     renderNavbar()
     
-    const inviteLink = screen.getByText('Invite')
-    await user.click(inviteLink)
+    const sponsorshipLink = screen.getByText('Sponsorship')
+    await user.click(sponsorshipLink)
     
-    expect(document.getElementById).toHaveBeenCalledWith('invite-email')
-    expect(mockElement.scrollIntoView).toHaveBeenCalledWith({ behavior: 'smooth' })
+    // Since it's a Link component, it should have the correct href
+    expect(sponsorshipLink).toHaveAttribute('href', '/sponsorship')
   })
 
   it('should toggle mobile menu when logo is clicked on mobile', async () => {

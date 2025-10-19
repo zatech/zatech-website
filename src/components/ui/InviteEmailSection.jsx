@@ -209,11 +209,8 @@ function InviteEmailSection({ className }) {
     const interval = setInterval(() => {
       setSampleIndex((current) => (current + 1) % emailSamples.length);
     }, SAMPLE_INTERVAL);
-
     return () => clearInterval(interval);
   }, []);
-
-  const sample = emailSamples[sampleIndex];
 
   useEffect(() => {
     const nextSample = emailSamples[sampleIndex];
@@ -226,9 +223,7 @@ function InviteEmailSection({ className }) {
       const progress = Math.min(elapsed / duration, 1);
       setTypedSample(createTypedState(nextSample, progress));
       setIsTyping(progress < 1);
-      if (progress < 1) {
-        rafId = requestAnimationFrame(animate);
-      }
+      if (progress < 1) rafId = requestAnimationFrame(animate);
     };
 
     setIsTyping(true);
@@ -238,15 +233,16 @@ function InviteEmailSection({ className }) {
     return () => cancelAnimationFrame(rafId);
   }, [sampleIndex]);
 
-  const mailtoSubject = encodeURIComponent('ZATech invite request - [Your Name]');
+  const sample = emailSamples[sampleIndex];
+
+  const mailtoSubject = encodeURIComponent("ZATech invite request - [Your Name]");
   const mailtoBody = encodeURIComponent(
     `Hi, I'm [Your Name], a [Your Role] based in [Your Location].\n\n` +
       `I'd love to join ZATech to [Why you want to join].\n` +
       `I heard about the community through [How you found us].\n\n` +
-      `You can check me out here: [LinkedIn/GitHub/Portfolio] — [URL].\n\n` +
+      `You can check me out here: [LinkedIn/GitHub/Portfolio] – [URL].\n\n` +
       `Thanks for your time!\n[Your Name]`
   );
-
   const mailtoLink = `mailto:invite@zatech.co.za?subject=${mailtoSubject}&body=${mailtoBody}`;
 
   const tokenClass = (field) => {
@@ -261,102 +257,120 @@ function InviteEmailSection({ className }) {
 
   const displayValue = (field) => {
     const typedValue = typedSample[field];
-    if (!typedValue) {
-      return isTyping ? "" : sample[field] || "";
-    }
+    if (!typedValue) return isTyping ? "" : sample[field] || "";
     return typedValue;
   };
 
   const tokenStyle = () => ({});
 
   return (
-    <section id="invite-email" className={`invite-section ${className || ''}`.trim()}>
-      <div className="invite-content">
-        <div className="invite-info">
-          <h2>Want an invite?</h2>
-          <p className="invite-email-line">
-            Email
-            {" "}
-            <a className="invite-email" href="mailto:invite@zatech.co.za">
-              invite@zatech.co.za
-            </a>
-            {" "}with a short introduction.
-          </p>
-          <p className="invite-summary">
-            ZATech is invite-only to keep conversations high-signal. Include these essentials so the
-            admin team can welcome you quickly.
-          </p>
-          <ol className="invite-steps">
-            <li>
-              <span className="invite-step-title">Who you are</span>
-              <span className="invite-step-detail">Name, role, and where you're based.</span>
-            </li>
-            <li>
-              <span className="invite-step-title">Why you're keen</span>
-              <span className="invite-step-detail">
-                What you'd like to get from ZATech and how you heard about us.
-              </span>
-            </li>
-            <li>
-              <span className="invite-step-title">Proof you're real</span>
-              <span className="invite-step-detail">
-                Link to LinkedIn, GitHub, a portfolio, or similar.
-              </span>
-            </li>
-          </ol>
-          <div className="invite-actions">
-            <a className="mailto-button" href={mailtoLink}>
-              Send Request Email
-            </a>
-          </div>
-        </div>
-        <div className={`email-preview${isTyping ? " email-preview--typing" : ""}`}>
-          <div className="email-header">
-            <p className="email-meta">To: invite@zatech.co.za</p>
-            <p className="email-meta">
-              Subject: ZATech invite request - <span className={tokenClass("name")} style={tokenStyle("name")}>
-                {displayValue("name") || sample.name}
-              </span>
-            </p>
-          </div>
-          <div className="email-body">
-            <p>
-              Hi, I'm <span className={tokenClass("name")} style={tokenStyle("name")}>
-                {displayValue("name") || sample.name}
-              </span>, a <span className={tokenClass("occupation")} style={tokenStyle("occupation")}>
-                {displayValue("occupation") || sample.occupation}
-              </span> based in <span className={tokenClass("location")} style={tokenStyle("location")}>
-                {displayValue("location") || sample.location}
-              </span>
-            </p>
-            <p>
-              I'd love to join ZATech to <span className={tokenClass("reason")} style={tokenStyle("reason")}>
-                {displayValue("reason") || sample.reason}
-              </span>
-            </p>
-            <p>
-              I heard about the community through <span className={tokenClass("source")} style={tokenStyle("source")}>
-                {displayValue("source") || sample.source}
-              </span>
-            </p>
-            <p>
-              You can check me out here:
-              <br />
-              <a href={sample.linkUrl} target="_blank" rel="noreferrer" className="email-link">
-                <span className={tokenClass("linkLabel")} style={tokenStyle("linkLabel")}>
-                  {displayValue("linkLabel") || sample.linkLabel}
-                </span>
-                <span className="email-link-url">{sample.linkUrl}</span>
-              </a>
-            </p>
-            <p>Thanks for your time!</p>
-            <p>
-              Kind regards,
-              <br />
-              <span className={tokenClass("name")} style={tokenStyle("name")}>
-                {displayValue("name") || sample.name}
-              </span>
-            </p>
+    <section id="invite-email" className={`invite-section ${className || ""}`.trim()}>
+      <div className="invite-section-inner">
+        <div className="invite-content-wrapper">
+          <div className="invite-content">
+
+            {/* LEFT SIDE */}
+            <div className="invite-info">
+              <h2>Want an invite?</h2>
+              <p className="invite-email-line">
+                Email{" "}
+                <a className="invite-email" href="mailto:invite@zatech.co.za">
+                  invite@zatech.co.za
+                </a>{" "}
+                with a short introduction.
+              </p>
+
+              <p className="invite-summary">
+                ZATech is invite-only to keep conversations high-signal. Include these essentials so the
+                admin team can welcome you quickly.
+              </p>
+
+              <ol className="invite-steps">
+                <li>
+                  <span className="invite-step-title">Who you are</span>
+                  <span className="invite-step-detail">Name, role, and where you're based.</span>
+                </li>
+                <li>
+                  <span className="invite-step-title">Why you're keen</span>
+                  <span className="invite-step-detail">
+                    What you'd like to get from ZATech and how you heard about us.
+                  </span>
+                </li>
+                <li>
+                  <span className="invite-step-title">Proof you're real</span>
+                  <span className="invite-step-detail">
+                    Link to LinkedIn, GitHub, a portfolio, or similar.
+                  </span>
+                </li>
+              </ol>
+
+              <div className="invite-actions">
+                <a className="mailto-button" href={mailtoLink}>
+                  Send Request Email
+                </a>
+              </div>
+            </div>
+
+            {/* RIGHT SIDE */}
+            <div className={`email-preview${isTyping ? " email-preview--typing" : ""}`}>
+              <div className="email-header">
+                <p className="email-meta">To: invite@zatech.co.za</p>
+                <p className="email-meta">
+                  Subject: ZATech invite request -{" "}
+                  <span className={tokenClass("name")} style={tokenStyle("name")}>
+                    {displayValue("name") || sample.name}
+                  </span>
+                </p>
+              </div>
+
+              <div className="email-body">
+                <p>
+                  Hi, I'm{" "}
+                  <span className={tokenClass("name")} style={tokenStyle("name")}>
+                    {displayValue("name") || sample.name}
+                  </span>
+                  , a{" "}
+                  <span className={tokenClass("occupation")} style={tokenStyle("occupation")}>
+                    {displayValue("occupation") || sample.occupation}
+                  </span>{" "}
+                  based in{" "}
+                  <span className={tokenClass("location")} style={tokenStyle("location")}>
+                    {displayValue("location") || sample.location}
+                  </span>.
+                </p>
+                <p>
+                  I'd love to join ZATech to{" "}
+                  <span className={tokenClass("reason")} style={tokenStyle("reason")}>
+                    {displayValue("reason") || sample.reason}
+                  </span>.
+                </p>
+                <p>
+                  I heard about the community through{" "}
+                  <span className={tokenClass("source")} style={tokenStyle("source")}>
+                    {displayValue("source") || sample.source}
+                  </span>.
+                </p>
+                <p>
+                  You can check me out here:
+                  <br />
+                  <a href={sample.linkUrl} target="_blank" rel="noreferrer" className="email-link">
+                    <span className={tokenClass("linkLabel")} style={tokenStyle("linkLabel")}>
+                      {displayValue("linkLabel") || sample.linkLabel}
+                    </span>
+                    <span className="email-link-url">{sample.linkUrl}</span>
+                  </a>
+                </p>
+                <p>Thanks for your time!</p>
+                <p>
+                  Kind regards,
+                  <br />
+                  <span className={tokenClass("name")} style={tokenStyle("name")}>
+                    {displayValue("name") || sample.name}
+                  </span>
+                </p>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>

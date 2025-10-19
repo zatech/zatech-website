@@ -9,8 +9,8 @@ function HeroSection({ className }) {
         <div className="hero-content">
           <h1 className="hero-title">South Africa's Largest Tech Community</h1>
           <p className="hero-description">
-            ZATech is South Africa's largest tech community, connecting developers,
-            entrepreneurs, and other technical professionals and tech enthusiasts
+            With over 15 000 members, we connect developers,
+            entrepreneurs, and other technical professionals
             across the country.
           </p>
           <a
