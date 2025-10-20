@@ -2,12 +2,14 @@
    Invite Email Section
 ======================= */
 .invite-section {
-  padding: 60px 0 40px;
+  padding: 60px 0 40px; 
   background: var(--bg-light);
+  width: 100%;
+  overflow: hidden;
 }
 
 .invite-section-inner {
-  max-width: var(--container-width);
+  max-width: 1300px;
   width: 100%;
   margin: 0 auto;
   padding: 0 20px;
@@ -20,6 +22,8 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   padding: 2rem;
   transition: all 0.3s ease;
+  width: 100%;
+  max-width: 100%;
 }
 
 .invite-content-wrapper:hover {
@@ -40,27 +44,30 @@
   gap: 20px;
   text-align: left;
   max-width: 480px;
+  min-width: 0;
 }
 
 .invite-info h2 {
   color: #0f172a;
-  font-size: 2.5rem;
+  font-size: clamp(2rem, 5vw, 2.5rem);
   letter-spacing: -0.02em;
   line-height: 1.2;
   margin: 0;
 }
 
 .invite-email-line {
-  font-size: 1.05rem;
+  font-size: clamp(0.95rem, 2.5vw, 1.05rem);
   color: #1f2937;
   font-weight: 600;
   margin: 0;
+  word-wrap: break-word;
 }
 
 .invite-email-line .invite-email {
   color: #1d4ed8;
   text-decoration: none;
   transition: color 0.2s ease;
+  word-break: break-word;
 }
 
 .invite-email-line .invite-email:hover {
@@ -70,7 +77,7 @@
 
 .invite-summary {
   color: #475569;
-  font-size: 1rem;
+  font-size: clamp(0.9rem, 2vw, 1rem);
   line-height: 1.7;
   max-width: 600px;
   margin: 0;
@@ -85,12 +92,13 @@
   flex-direction: column;
   gap: 14px;
   color: #1f2937;
-  font-size: 0.95rem;
+  font-size: clamp(0.875rem, 2vw, 0.95rem);
 }
 
 .invite-steps li {
   line-height: 1.6;
   transition: transform 0.2s ease;
+  padding-left: 0.5rem;
 }
 
 .invite-steps li:hover {
@@ -131,6 +139,7 @@
   text-decoration: none;
   transition: all 0.3s ease;
   box-shadow: 0 2px 8px rgba(246, 133, 4, 0.25);
+  white-space: nowrap;
 }
 
 .mailto-button:hover {
@@ -163,6 +172,7 @@
   text-align: left;
   transition: all 0.3s ease;
   position: relative;
+  max-width: 100%;
 }
 
 .email-preview:hover {
@@ -222,6 +232,8 @@
   font-size: 0.9rem;
   color: #475569;
   font-weight: 600;
+  word-wrap: break-word;
+  max-width: 100%;
 }
 
 .email-body {
@@ -236,6 +248,7 @@
 
 .email-body p {
   margin: 0;
+  word-wrap: break-word;
 }
 
 .email-body p + p {
@@ -259,6 +272,7 @@
   display: inline-block;
   margin-top: 6px;
   transition: transform 0.2s ease;
+  word-break: break-all;
 }
 
 .email-link:hover {
@@ -271,19 +285,18 @@
   color: #1d4ed8;
   margin-top: 4px;
   font-size: 0.9rem;
+  word-break: break-all;
 }
 
 /* Token Animation */
 .email-token {
-  display: inline-block;
+  display: inline;
   min-height: 1.3em;
-  min-width: 6ch;
   padding: 0;
   margin: 0;
   color: #0f172a;
   font-weight: 600;
-  white-space: normal;
-  word-break: break-word;
+  word-wrap: break-word;
   transition: color 0.3s ease;
   position: relative;
 }
@@ -355,56 +368,13 @@
     min-height: 0;
     max-height: none;
     overflow: visible;
+    max-width: 100%;
   }
 }
 
 @media (max-width: 768px) {
   .invite-section {
     padding: 40px 0;
-  }
-
-  .invite-section-inner {
-    padding: 0 20px;
-  }
-
-  .invite-content-wrapper {
-    padding: 32px 24px;
-  }
-
-  .invite-content {
-    flex-direction: column;
-    gap: 24px;
-  }
-
-  .invite-info {
-    gap: 20px;
-  }
-
-  .invite-info h2 {
-    font-size: 2.25rem;
-  }
-
-  .invite-actions {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .invite-actions .mailto-button {
-    width: 100%;
-  }
-
-  .email-preview {
-    display: none;
-  }
-}
-
-@media (max-width: 480px) {
-  .mailto-button {
-    width: 100%;
-  }
-
-  .invite-section {
-    padding: 32px 0;
   }
 
   .invite-section-inner {
@@ -416,14 +386,65 @@
   }
 
   .invite-content {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .invite-info {
+    gap: 16px;
+  }
+
+  .invite-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .mailto-button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .email-preview {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .invite-section {
+    padding: 32px 0;
+  }
+
+  .invite-section-inner {
+    padding: 0 12px;
+  }
+
+  .invite-content-wrapper {
+    padding: 20px 16px;
+  }
+
+  .invite-content {
     gap: 20px;
   }
 
-  .invite-info h2 {
-    font-size: 2rem;
+  .invite-info {
+    gap: 14px;
   }
 
   .invite-actions {
     gap: 10px;
+  }
+
+  .invite-steps {
+    padding-left: 1.2rem;
+    gap: 12px;
+  }
+
+  .invite-steps li {
+    padding-left: 0.25rem;
+  }
+
+  .mailto-button {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.875rem;
   }
 }
