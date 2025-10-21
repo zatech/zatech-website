@@ -238,7 +238,7 @@ function InviteEmailSection({ className }) {
   const mailtoSubject = encodeURIComponent("ZATech invite request - [Your Name]");
   const mailtoBody = encodeURIComponent(
     `Hi, I'm [Your Name], a [Your Role] based in [Your Location].\n\n` +
-      `I'd love to join ZATech to [Why you want to join].\n` +
+      `I'd love to join ZATech to [Why you want to join].\n\n` +
       `I heard about the community through [How you found us].\n\n` +
       `You can check me out here: [LinkedIn/GitHub/Portfolio] – [URL].\n\n` +
       `Thanks for your time!\n[Your Name]`
