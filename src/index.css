@@ -1,5 +1,6 @@
 :root {
-  font-family: Manrope, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-sans: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-family: var(--font-sans);
   line-height: 1.6;
   font-weight: 400;
   /* Use light theme by default */
@@ -11,8 +12,8 @@
   -moz-osx-font-smoothing: grayscale;
   
   /* ZATech Brand Colors */
-  --brand-orange: #F68504;
-  --brand-orange-hover: #e07703;
+  --brand-orange: #b05c00;
+  --brand-orange-hover: #8a4600;
   --brand-blue: #1a202c;
   --text-primary: #2d3748;
   --text-strong: #1a1a1a;
@@ -44,7 +45,7 @@ html {
 body {
   margin: 0;
   padding: 0;
-  font-family: Manrope, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: var(--font-sans);
   line-height: 1.6;
   color: var(--text-primary);
   background-color: var(--bg-light);

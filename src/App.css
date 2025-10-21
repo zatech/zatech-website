@@ -38,28 +38,3 @@
 .read-the-docs {
   color: #888;
 }
-
-/* Form message styles */
-.message {
-  padding: 1rem;
-  margin: 1rem 0;
-  border-radius: 4px;
-}
-
-.message.error {
-  background-color: #fee;
-  border: 1px solid #fcc;
-  color: #c33;
-}
-
-.message.success {
-  background-color: #efe;
-  border: 1px solid #cfc;
-  color: #3c3;
-}
-
-.recaptcha-status {
-  margin-top: 0.5rem;
-  color: #666;
-  font-size: 0.875rem;
-}

@@ -8,13 +8,9 @@ test.describe('Cross-Browser Compatibility', () => {
     await page.goto('/');
     await expect(page.getByRole('link', { name: 'ZATech Home' })).toBeVisible();
     
-    // Test report page loads
-    await page.goto('/report');
-    await expect(page.getByText('Anonymous Report')).toBeVisible();
-    
-    // Test form elements work
-    await page.locator('select[name="report_type"]').selectOption('harassment');
-    await page.locator('textarea[name="description"]').fill('Test');
+    // Test sponsorship page loads
+    await page.goto('/sponsorship');
+    await expect(page.getByRole('heading', { name: /Sponsorship/i })).toBeVisible();
     
     console.log(`✅ ${browserName} compatibility confirmed`);
   });
@@ -56,8 +52,8 @@ test.describe('Cross-Browser Compatibility', () => {
     await expect(page.getByRole('link', { name: 'ZATech Home' })).toBeVisible();
     
     // Navigate to test dynamic imports
-    await page.goto('/report');
-    await expect(page.getByText('Anonymous Report')).toBeVisible();
+    await page.goto('/sponsorship');
+    await expect(page.getByRole('heading', { name: /Sponsorship/i })).toBeVisible();
     
     console.log(`✅ Modern JS features working in ${browserName}`);
   });

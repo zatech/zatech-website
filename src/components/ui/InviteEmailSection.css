@@ -141,26 +141,26 @@
   gap: 8px;
   padding: 0.85rem 1.7rem;
   border-radius: 8px;
-  background: #F68504;
+  background: var(--brand-orange);
   color: #ffffff;
   font-weight: 600;
   font-size: 0.9rem;
   text-decoration: none;
   transition: all 0.3s ease;
-  box-shadow: 0 2px 8px rgba(246, 133, 4, 0.25);
+  box-shadow: 0 2px 8px rgba(162, 79, 0, 0.25);
   white-space: nowrap;
 }
 
 .mailto-button:hover {
-  background: #FF9518;
-  color: #1a1a1a;
+  background: var(--brand-orange-hover);
+  color: #fff;
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(246, 133, 4, 0.4);
+  box-shadow: 0 4px 12px rgba(162, 79, 0, 0.4);
 }
 
 .mailto-button:active {
   transform: translateY(0);
-  box-shadow: 0 2px 6px rgba(246, 133, 4, 0.3);
+  box-shadow: 0 2px 6px rgba(162, 79, 0, 0.3);
 }
 
 /* Email Preview Card */
@@ -197,7 +197,7 @@
   left: 0;
   right: 0;
   height: 3px;
-  background: linear-gradient(90deg, #F68504, #FF9518);
+  background: linear-gradient(90deg, var(--brand-orange), var(--brand-orange-hover));
   border-radius: 12px 12px 0 0;
   opacity: 0;
   transition: opacity 0.3s ease;
@@ -335,7 +335,7 @@
 }
 
 .email-token--typing {
-  color: #F68504;
+  color: var(--brand-orange);
 }
 
 .email-token--typing::after {
@@ -345,7 +345,7 @@
   top: 0;
   bottom: 0;
   width: 2px;
-  background: #F68504;
+  background: var(--brand-orange);
   animation: blink 0.8s infinite;
 }
 

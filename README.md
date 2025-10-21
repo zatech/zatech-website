@@ -4,20 +4,17 @@ A modern, responsive community platform built with React 19 and Vite, featuring 
 
 ## ✨ Features
 
-- 🌐 **Responsive Design** - Mobile-first with hamburger navigation
-- 🧪 **Comprehensive Testing** - 37 unit tests + 65 E2E tests across browsers
-- 🛡️ **Enterprise Security** - CSP, input sanitization, rate limiting, reCAPTCHA
-- 📱 **Cross-Browser Support** - Chrome, Firefox, Safari (desktop + mobile)
-- ⚡ **Modern Stack** - React 19, Vite, Firebase, Playwright
-- 🎯 **Production Ready** - Zero lint errors, security audits, performance optimized
+- 🌐 **Responsive Design** – Mobile-first layout with smooth in-page navigation
+- 🧪 **Automated Testing** – Unit and Playwright coverage for critical journeys
+- 📱 **Cross-Browser Support** – Chrome, Firefox, Safari (desktop + mobile)
+- ⚡ **Modern Stack** – React 19, Vite, Playwright, and Vitest
+- 🛡️ **Built-In Security** – Strict Content Security Policy and lazy loading for heavy sections
 
 ## 🚀 Quick Start
 
 ### Prerequisites
 - Node.js 18+ 
 - npm or yarn
-- Firebase project with Firestore enabled
-- Google reCAPTCHA v3 site key
 
 ### Installation
 ```bash
@@ -28,25 +25,12 @@ cd zatech-website
 # Install dependencies
 npm install
 
-# Configure environment variables
-cp .env.example .env.local
-# Edit .env.local with your Firebase and reCAPTCHA credentials
-
 # Start development server
 npm run dev
 ```
 
 ### Environment Variables
-Create a `.env.local` file with:
-```env
-VITE_FIREBASE_API_KEY=your_api_key
-VITE_FIREBASE_AUTH_DOMAIN=your_project.firebaseapp.com
-VITE_FIREBASE_PROJECT_ID=your_project_id
-VITE_FIREBASE_STORAGE_BUCKET=your_project.appspot.com
-VITE_FIREBASE_MESSAGING_SENDER_ID=123456789
-VITE_FIREBASE_APP_ID=1:123456789:web:abcdef
-VITE_RECAPTCHA_SITE_KEY=your_recaptcha_site_key
-```
+None required for local development.
 
 ## 🏗️ Project Structure
 
@@ -56,12 +40,10 @@ zatech-website/
 ├── src/                          # All source code
 │   ├── components/               # Reusable UI components
 │   │   ├── common/               # Shared components (Navbar, ErrorBoundary)
-│   │   ├── forms/                # Form components (ReportForm)
 │   │   └── ui/                   # UI elements (HeroSection, Cards, InviteEmailSection)
-│   ├── pages/                    # Main page components (Home, Report)
-│   ├── services/                 # Firebase and external API calls
-│   ├── utils/                    # Helper functions and security utilities
-│   ├── config/                   # Configuration files and constants
+│   ├── pages/                    # Main page components (Home, Sponsorship)
+│   ├── utils/                    # Helper functions (scroll helpers, etc.)
+│   ├── config/                   # Configuration files (CSP helpers)
 │   ├── assets/                   # Images, fonts, and other static files
 │   └── test/                     # Test setup and utilities
 ├── tests/                        # End-to-end tests
@@ -168,18 +150,16 @@ npm run dev -- --host 0.0.0.0
 ## 🛡️ Security & Quality
 
 ### Security Features
-- **Content Security Policy (CSP)**: Browser-level protection against XSS attacks
-- **Input Sanitization**: DOMPurify integration with custom validation
-- **Rate Limiting**: Advanced abuse prevention with progressive delays
-- **Bot Protection**: Google reCAPTCHA v3 with score-based validation
-- **Real-time Monitoring**: CSP violation tracking and security alerts
+- **Content Security Policy (CSP)**: Browser-level guardrails for third-party content
+- **Minimal Surface Area**: No data collection, authentication, or external SDKs on the public site
+- **Progressive Loading**: Heavy sections lazy-load to keep the critical path fast and resilient
 
 ### Quality Assurance
-- **37 Unit Tests** - Component logic and utility functions
-- **65 E2E Tests** - Cross-browser compatibility (Chrome, Firefox, Safari)
-- **Mobile Testing** - Responsive design verification
-- **Code Quality** - ESLint with zero errors
-- **Security Audits** - Automated dependency vulnerability scanning
+- **Unit Tests** – Component logic and navigation behaviour
+- **E2E Tests** – Cross-browser journeys (Chrome, Firefox, Safari)
+- **Mobile Testing** – Responsive design verification
+- **Code Quality** – ESLint with zero errors
+- **Security Audits** – Automated dependency vulnerability scanning
 
 ### Browser Support
 Configured via `.browserslistrc`:

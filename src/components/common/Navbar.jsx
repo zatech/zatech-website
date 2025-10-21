@@ -82,9 +82,6 @@ export default function Navbar({ className }) {
           >
             Home
           </Link>
-          <Link to="/report" className="nav-link" onClick={handleNavClick()}>
-            Report
-          </Link>
           <Link to="/sponsorship" className="nav-link" onClick={handleNavClick()}>
             Sponsorship
           </Link>

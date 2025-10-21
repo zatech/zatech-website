@@ -8,30 +8,17 @@ const buildPolicy = () => {
     "script-src": [
       "'self'",
       "'unsafe-inline'",
-      ...(isDev ? ["'unsafe-eval'"] : []),
-      "https://www.google.com",
-      "https://www.gstatic.com",
-      "https://apis.google.com"
+      ...(isDev ? ["'unsafe-eval'"] : [])
     ],
-    "style-src": ["'self'", "'unsafe-inline'", "https://www.gstatic.com"],
+    "style-src": ["'self'", "'unsafe-inline'"],
     "connect-src": [
-      "'self'",
-      "https://firestore.googleapis.com",
-      "https://www.googleapis.com", 
-      "https://www.google.com",
-      "https://identitytoolkit.googleapis.com",
-      "https://securetoken.googleapis.com",
-      "https://zatechdatabase.firebaseapp.com",
-      "https://zatechdatabase.firebasestorage.app"
+      "'self'"
     ],
     "frame-src": [
-      "https://www.google.com",
-      "https://recaptcha.google.com",
-      "https://zatechdatabase.firebaseapp.com",
       "https://www.youtube.com",
       "https://www.youtube-nocookie.com"
     ],
-    "img-src": ["'self'", "data:", "https://www.gstatic.com"],
+    "img-src": ["'self'", "data:", "https://i.ytimg.com", "https://img.youtube.com"],
     "object-src": ["'none'"],
     "base-uri": ["'self'"],
     "form-action": ["'self'"]
@@ -46,4 +33,3 @@ const serialize = (policyObj) =>
     .join('; ');
 
 export const getCSP = () => serialize(buildPolicy());
-

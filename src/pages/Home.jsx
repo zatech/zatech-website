@@ -5,11 +5,17 @@ import brandSlack from "../assets/icons/brand-slack.png";
 import usersGroup from "../assets/icons/users-group.png";
 import IconCard from "../components/ui/IconCard";
 import TextCard from "../components/ui/TextCard";
+import InviteEmailSection from "../components/ui/InviteEmailSection";
 import AboutSection from "../components/ui/AboutSection";
 import FAQSection from "../components/ui/FAQSection";
-import InviteEmailSection from "../components/ui/InviteEmailSection";
 import WhyJoinImage from "../assets/images/why-join.optimized.jpg";
+import WhyJoinImageWebp from "../assets/images/why-join.optimized.webp";
+import WhyJoinImageSmall from "../assets/images/why-join.640w.jpg";
+import WhyJoinImageSmallWebp from "../assets/images/why-join.640w.webp";
 import EventsImage from "../assets/images/events.optimized.jpg";
+import EventsImageWebp from "../assets/images/events.optimized.webp";
+import EventsImageSmall from "../assets/images/events.700w.jpg";
+import EventsImageSmallWebp from "../assets/images/events.700w.webp";
 import scrollSectionIntoView from "../utils/scrollToSection";
 
 import { useLocation, useNavigate } from "react-router-dom";
@@ -41,21 +47,34 @@ export default function Home() {
       {/* Community Section */}
       <section className="community-section">
         <div className="community-section-header">
-          <h1>Join Our Community</h1>
+          <h2>Join Our Community</h2>
           <p>Connect, collaborate, and grow with thousands of tech professionals in South Africa.</p>
         </div>
         
         <div className="community-grid-new">
           {/* Card 1: Why Join (spans rows 1-2) */}
           <div className="community-card-large card-1">
-            <img 
-              src={WhyJoinImage} 
-              alt="Why Join" 
-              className="card-large-image" 
-              loading="lazy" 
-              width="1200" 
-              height="900" 
-            />
+            <picture>
+              <source
+                srcSet={`${WhyJoinImageSmallWebp} 640w, ${WhyJoinImageWebp} 1200w`}
+                sizes="(max-width: 768px) 100vw, 50vw"
+                type="image/webp"
+              />
+              <source
+                srcSet={`${WhyJoinImageSmall} 640w, ${WhyJoinImage} 1200w`}
+                sizes="(max-width: 768px) 100vw, 50vw"
+                type="image/jpeg"
+              />
+              <img
+                src={WhyJoinImageSmall}
+                alt="Why Join"
+                className="card-large-image"
+                loading="lazy"
+                decoding="async"
+                width="640"
+                height="480"
+              />
+            </picture>
             <div className="card-large-content">
               <h3>Why Join?</h3>
               <p>
@@ -88,14 +107,27 @@ export default function Home() {
 
           {/* Card 4: Events and Jobs */}
           <div className="community-card-large card-4">
-            <img 
-              src={EventsImage} 
-              alt="Events and Jobs" 
-              className="card-large-image" 
-              loading="lazy" 
-              width="1600" 
-              height="828" 
-            />
+            <picture>
+              <source
+                srcSet={`${EventsImageSmallWebp} 700w, ${EventsImageWebp} 1600w`}
+                sizes="(max-width: 768px) 100vw, 50vw"
+                type="image/webp"
+              />
+              <source
+                srcSet={`${EventsImageSmall} 700w, ${EventsImage} 1600w`}
+                sizes="(max-width: 768px) 100vw, 50vw"
+                type="image/jpeg"
+              />
+              <img
+                src={EventsImageSmall}
+                alt="Events and Jobs"
+                className="card-large-image"
+                loading="lazy"
+                decoding="async"
+                width="700"
+                height="362"
+              />
+            </picture>
             <div className="card-large-content">
               <h3>Events, Job Postings, and More</h3>
               <p>

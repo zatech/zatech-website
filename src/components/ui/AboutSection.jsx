@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import './AboutSection.css';
+import LiteYouTube from './LiteYouTube';
 
 function AboutSection({ className }) {
   return (
@@ -8,14 +9,11 @@ function AboutSection({ className }) {
       <p>Here's a four-minute video with some more information about who we are and a look inside our Slack group.</p>
 
       <div className="about-video">
-        <iframe
-          width="800"
-          height="500"
-          src="https://www.youtube.com/embed/Ze_C-Fwz_Ec"
+        <LiteYouTube
+          videoId="Ze_C-Fwz_Ec"
           title="ZATech Video"
-          frameBorder="0"
-          allowFullScreen
-        ></iframe>
+          className="about-video-player"
+        />
         <a
           href="https://www.youtube.com/watch?v=Ze_C-Fwz_Ec"
           target="_blank"
