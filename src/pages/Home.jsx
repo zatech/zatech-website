@@ -10,6 +10,7 @@ import FAQSection from "../components/ui/FAQSection";
 import InviteEmailSection from "../components/ui/InviteEmailSection";
 import WhyJoinImage from "../assets/images/why-join.optimized.jpg";
 import EventsImage from "../assets/images/events.optimized.jpg";
+import scrollSectionIntoView from "../utils/scrollToSection";
 
 import { useLocation, useNavigate } from "react-router-dom";
 
@@ -25,7 +26,7 @@ export default function Home() {
       setTimeout(() => {
         const el = document.getElementById(scrollTo);
         if (el) {
-          el.scrollIntoView({ behavior: "smooth" });
+          scrollSectionIntoView(el, { offset: 24 });
         }
         // Clean up URL (remove ?scrollTo=...)
         navigate("/", { replace: true });

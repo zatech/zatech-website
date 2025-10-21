@@ -8,11 +8,20 @@
   overflow: hidden;
 }
 
+.card-7 .invite-section {
+  padding: 0;
+  background: transparent;
+}
+
 .invite-section-inner {
   max-width: 1300px;
   width: 100%;
   margin: 0 auto;
   padding: 0 20px;
+}
+
+.card-7 .invite-section-inner {
+  padding: 0;
 }
 
 .invite-content-wrapper {
@@ -390,6 +399,14 @@
     gap: 24px;
   }
 
+  .card-7 .invite-section {
+    padding: 0;
+  }
+
+  .card-7 .invite-section-inner {
+    padding: 0;
+  }
+
   .invite-info {
     gap: 16px;
   }
@@ -406,6 +423,16 @@
 
   .email-preview {
     display: none;
+  }
+
+  .invite-content-wrapper {
+    box-shadow: none;
+    border: 1px solid #e5e7eb;
+  }
+
+  .invite-content-wrapper:hover {
+    box-shadow: none;
+    transform: none;
   }
 }
 

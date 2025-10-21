@@ -1,10 +1,7 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest'
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { BrowserRouter } from 'react-router-dom'
-import Navbar from './Navbar.jsx'
 
-// Mock useNavigate and useLocation
 const mockNavigate = vi.fn()
 vi.mock('react-router-dom', async () => {
   const actual = await vi.importActual('react-router-dom')
@@ -14,6 +11,16 @@ vi.mock('react-router-dom', async () => {
     useLocation: () => ({ pathname: '/' })
   }
 })
+
+vi.mock('../../utils/scrollToSection.js', () => ({
+  __esModule: true,
+  default: vi.fn(),
+  scrollSectionIntoView: vi.fn(),
+}))
+
+import { BrowserRouter } from 'react-router-dom'
+import Navbar from './Navbar.jsx'
+import scrollSectionIntoView from '../../utils/scrollToSection.js'
 
 // Mock window.scrollTo for smooth scrolling tests
 Object.defineProperty(window, 'scrollTo', {
@@ -37,6 +44,11 @@ describe('Navbar', () => {
       writable: true,
       configurable: true,
       value: 1024,
+    })
+    Object.defineProperty(window, 'scrollY', {
+      writable: true,
+      configurable: true,
+      value: 0,
     })
   })
 
@@ -67,20 +79,16 @@ describe('Navbar', () => {
   it('should handle About link click', async () => {
     const user = userEvent.setup()
     
-    // Mock getElementById for smooth scrolling
-    const mockElement = { scrollIntoView: vi.fn() }
-    Object.defineProperty(document, 'getElementById', {
-      value: vi.fn(() => mockElement),
-      writable: true
-    })
+    // Mock smooth scroll helper
+    const scrollMock = scrollSectionIntoView
+    scrollMock.mockImplementation(() => {})
     
     renderNavbar()
     
     const aboutLink = screen.getByText('About')
     await user.click(aboutLink)
     
-    expect(document.getElementById).toHaveBeenCalledWith('about')
-    expect(mockElement.scrollIntoView).toHaveBeenCalledWith({ behavior: 'smooth' })
+    expect(scrollMock).toHaveBeenCalledWith('about', { offset: 24 })
   })
 
   it('should handle Sponsorship link click', async () => {

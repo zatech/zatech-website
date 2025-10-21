@@ -2,6 +2,7 @@ import { Link, useNavigate, useLocation } from "react-router-dom";
 import PropTypes from "prop-types";
 import { useState } from "react";
 import "./Navbar.css";
+import scrollSectionIntoView from "../../utils/scrollToSection";
 
 export default function Navbar({ className }) {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -13,10 +14,14 @@ export default function Navbar({ className }) {
     e.preventDefault();
     setMenuOpen(false);
     if (location.pathname === "/") {
-      const el = document.getElementById(sectionId);
-      if (el) {
-        el.scrollIntoView({ behavior: "smooth" });
-      } else {
+      if (typeof document === "undefined") return;
+      const target = document.getElementById(sectionId);
+      if (target) {
+        scrollSectionIntoView(target, { offset: 24 });
+        if (typeof window !== "undefined") {
+          window.history.replaceState(null, "", `#${sectionId}`);
+        }
+      } else if (typeof window !== "undefined") {
         window.location.hash = `#${sectionId}`;
       }
     } else {

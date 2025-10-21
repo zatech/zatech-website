@@ -1,8 +1,17 @@
 import PropTypes from 'prop-types';
 import './HeroSection.css';
 import MapSVG from '../../assets/images/South_Africa_blank_map.svg';
+import scrollSectionIntoView from '../../utils/scrollToSection';
 
 function HeroSection({ className }) {
+  const handleScrollToInvite = (event) => {
+    event.preventDefault();
+    scrollSectionIntoView('invite-email', { offset: 24 });
+    if (typeof window !== 'undefined' && window.location.hash !== '#invite-email') {
+      window.history.replaceState(null, '', '#invite-email');
+    }
+  };
+
   return (
     <section className={`hero ${className || ''}`.trim()} id="home">
       <div className="hero-container">
@@ -14,10 +23,9 @@ function HeroSection({ className }) {
             across the country.
           </p>
           <a
-            href="https://app.slack.com/client/T03A23LJR/C03A23LKH"
-            target="_blank"
-            rel="noreferrer"
+            href="#invite-email"
             className="cta-button"
+            onClick={handleScrollToInvite}
           >
             Join Our Slack Community →
           </a>
