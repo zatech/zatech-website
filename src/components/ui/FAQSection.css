@@ -63,7 +63,7 @@
 }
 
 .faq-item summary:hover {
-  color: #444;
+  color: var(--brand-orange); 
 }
 
 .faq-item summary::-webkit-details-marker {
