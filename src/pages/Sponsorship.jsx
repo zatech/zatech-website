@@ -2,6 +2,11 @@ import SponsorshipCard from '../components/ui/SponsorshipCard';
 import './Sponsorship.css';
 
 function SponsorshipPage() {
+
+  // Slack admin contact link
+  const slackContactId = "U896THM5J";
+  const slackLink = `https://zatech.slack.com/team/${slackContactId}`
+
   const tiers = [
     {
       icon: "🏆",
@@ -115,7 +120,7 @@ function SponsorshipPage() {
           Join hundreds of companies and individuals who believe in the power of South African tech talent. 
           Together, we're building a stronger, more connected tech ecosystem.
         </p>
-        <a href="#" className="cta-link">Get In Touch →</a>
+        <a href={slackLink} target="_blank" rel="noopener noreferrer" className="cta-link">Get in touch with an admin on Slack →</a>
       </div>
     </div>
   );

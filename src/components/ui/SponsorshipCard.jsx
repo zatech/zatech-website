@@ -2,9 +2,9 @@ import "./SponsorshipCard.css";
 
 function SponsorshipCard({ icon, title, price, period, benefits, buttonText, accentColor }) {
 
-// Slack admin contact link
-const slackContactId = "U896THM5J";
-const slackLink = `https://zatech.slack.com/team/${slackContactId}`
+  // Slack admin contact link
+  const slackContactId = "U896THM5J";
+  const slackLink = `https://zatech.slack.com/team/${slackContactId}`
 
   return (
     <div className="sponsorship-card">
