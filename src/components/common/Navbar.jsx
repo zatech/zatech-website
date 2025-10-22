@@ -1,8 +1,15 @@
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import PropTypes from "prop-types";
 import { useState } from "react";
-import "./Navbar.css";
+import navbarStyles from "./Navbar.css?inline";
 import scrollSectionIntoView from "../../utils/scrollToSection";
+
+if (typeof document !== "undefined" && !document.querySelector('style[data-navbar-styles="true"]')) {
+  const styleTag = document.createElement("style");
+  styleTag.setAttribute("data-navbar-styles", "true");
+  styleTag.textContent = navbarStyles;
+  document.head.appendChild(styleTag);
+}
 
 export default function Navbar({ className }) {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -81,9 +88,6 @@ export default function Navbar({ className }) {
             }}
           >
             Home
-          </Link>
-          <Link to="/report" className="nav-link" onClick={handleNavClick()}>
-            Report
           </Link>
           <Link to="/sponsorship" className="nav-link" onClick={handleNavClick()}>
             Sponsorship

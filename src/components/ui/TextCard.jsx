@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import './TextCard.css';
 
-function TextCard({ title, content, highlight, gridArea }) {
+function TextCard({ title, content, highlight, highlightHref, gridArea }) {
   return (
     <div className={`text-card ${gridArea ? `grid-area-${gridArea}` : ''}`}>
       <h3 className="text-card-title">{title}</h3>
@@ -12,7 +12,18 @@ function TextCard({ title, content, highlight, gridArea }) {
             return (
               <p key={index}>
                 {parts[0]}
-                <strong className="text-highlight">{highlight}</strong>
+                {highlightHref ? (
+                  <a
+                    className="text-highlight"
+                    href={highlightHref}
+                    target={highlightHref.startsWith('http') ? '_blank' : undefined}
+                    rel={highlightHref.startsWith('http') ? 'noreferrer' : undefined}
+                  >
+                    {highlight}
+                  </a>
+                ) : (
+                  <strong className="text-highlight">{highlight}</strong>
+                )}
                 {parts[1]}
               </p>
             );
@@ -28,6 +39,7 @@ TextCard.propTypes = {
   title: PropTypes.string.isRequired,
   content: PropTypes.string.isRequired,
   highlight: PropTypes.string,
+  highlightHref: PropTypes.string,
   gridArea: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 };
 

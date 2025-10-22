@@ -57,7 +57,6 @@ describe('Navbar', () => {
     
     expect(screen.getByText('ZATech')).toBeInTheDocument()
     expect(screen.getByText('Home')).toBeInTheDocument()
-    expect(screen.getByText('Report')).toBeInTheDocument()
     expect(screen.getByText('Sponsorship')).toBeInTheDocument()
     expect(screen.getByText('About')).toBeInTheDocument()
     expect(screen.getByText('FAQ')).toBeInTheDocument()
@@ -83,12 +82,17 @@ describe('Navbar', () => {
     const scrollMock = scrollSectionIntoView
     scrollMock.mockImplementation(() => {})
     
+    const aboutSection = document.createElement('section')
+    aboutSection.id = 'about'
+    document.body.appendChild(aboutSection)
+
     renderNavbar()
     
     const aboutLink = screen.getByText('About')
     await user.click(aboutLink)
     
-    expect(scrollMock).toHaveBeenCalledWith('about', { offset: 24 })
+    expect(scrollMock).toHaveBeenCalledWith(aboutSection, { offset: 24 })
+    document.body.removeChild(aboutSection)
   })
 
   it('should handle Sponsorship link click', async () => {
@@ -185,13 +189,13 @@ describe('Navbar', () => {
     renderNavbar()
     
     const logo = screen.getByText('ZATech')
-    const reportLink = screen.getByText('Report')
+    const sponsorshipLink = screen.getByText('Sponsorship')
     
     // Open menu first
     await user.click(logo)
     
     // Click a navigation link
-    await user.click(reportLink)
+    await user.click(sponsorshipLink)
     
     // Menu should close (in a real implementation, you'd check the state)
     // This test would need to verify the menu closes after navigation

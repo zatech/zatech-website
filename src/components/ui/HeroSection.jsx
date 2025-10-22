@@ -3,6 +3,18 @@ import './HeroSection.css';
 import MapSVG from '../../assets/images/South_Africa_blank_map.svg';
 import scrollSectionIntoView from '../../utils/scrollToSection';
 
+if (typeof document !== 'undefined') {
+  const existingPreload = document.head.querySelector(`link[rel="preload"][href="${MapSVG}"]`);
+  if (!existingPreload) {
+    const preloadLink = document.createElement('link');
+    preloadLink.rel = 'preload';
+    preloadLink.as = 'image';
+    preloadLink.href = MapSVG;
+    preloadLink.type = 'image/svg+xml';
+    document.head.appendChild(preloadLink);
+  }
+}
+
 function HeroSection({ className }) {
   const handleScrollToInvite = (event) => {
     event.preventDefault();
@@ -30,8 +42,17 @@ function HeroSection({ className }) {
             Join Our Slack Community →
           </a>
         </div>
-        <div className="hero-map">
-          <img src={MapSVG} alt="South Africa Map" className="map-svg" loading="lazy" />
+        <div className="hero-map" aria-hidden="true">
+          <img
+            src={MapSVG}
+            alt="South Africa Map"
+            className="map-svg"
+            loading="eager"
+            fetchpriority="high"
+            decoding="async"
+            width="640"
+            height="640"
+          />
         </div>
       </div>
     </section>
