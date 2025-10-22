@@ -1,10 +1,15 @@
 import "./SponsorshipCard.css";
 
 function SponsorshipCard({ icon, title, price, period, benefits, buttonText, accentColor }) {
+
+  // Slack admin contact link
+  const slackContactId = "U896THM5J";
+  const slackLink = `https://zatech.slack.com/team/${slackContactId}`
+
   return (
     <div className="sponsorship-card">
       <div className="accent-bar" style={{ backgroundColor: accentColor }} />
-      {/* Header with icon and title */}
+      {/* Header (icon and title) */}
       <div className="card-header" aria-label={title}>
         <span className="tier-icon" aria-hidden>
           {icon}
@@ -31,8 +36,11 @@ function SponsorshipCard({ icon, title, price, period, benefits, buttonText, acc
         ))}
       </ul>
 
-      {/* Action button */}
-      <button className="sponsor-button">{buttonText}</button>
+      {/* Contact button */}
+      <p className="sponsor-button-description">Interested? Message an admin on Slack</p>
+      <a className="sponsor-button" href={slackLink} target="_blank" rel="noopener noreferrer">
+        {buttonText}
+      </a>
     </div>
   );
 }

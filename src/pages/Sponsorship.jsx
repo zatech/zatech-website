@@ -2,13 +2,18 @@ import SponsorshipCard from '../components/ui/SponsorshipCard';
 import './Sponsorship.css';
 
 function SponsorshipPage() {
+
+  // Slack admin contact link
+  const slackContactId = "U896THM5J";
+  const slackLink = `https://zatech.slack.com/team/${slackContactId}`
+
   const tiers = [
     {
-      icon: "💎",
-      title: "Platinum Sponsor",
+      icon: "🏆",
+      title: "Gold Sponsor",
       price: "$2,000",
       period: "year",
-      accentColor: "#60a5fa", // blue-400
+      accentColor: "#f59e0b", // Amber-500
       benefits: [
         "Weekly shoutout in #announcements",
         "Reach 17,000 members, 2,000 active",
@@ -17,14 +22,14 @@ function SponsorshipPage() {
         "Direct access to community insights",
         "Company logo on community resources"
       ],
-      buttonText: "CLICK HERE",
+      buttonText: "Message on Slack",
     },
     {
-      icon: "🏆",
-      title: "Gold Sponsor",
+      icon: "🥈",
+      title: "Silver Sponsor",
       price: "$1,000",
       period: "year",
-      accentColor: "#f59e0b", // amber-500
+      accentColor: "#94a3b8", // Slate-400
       benefits: [
         "Weekly shoutout in #developers OR #startups",
         "Reach 4,000 developers or 2,000 startup members",
@@ -33,14 +38,14 @@ function SponsorshipPage() {
         "Quarterly community analytics",
         "Company mention in newsletters"
       ],
-      buttonText: "CLICK HERE",
+      buttonText: "Message on Slack",
     },
     {
       icon: "🥉", 
       title: "Bronze Sponsor",
       price: "$500",
       period: "year",
-      accentColor: "#a0522d", // bronze
+      accentColor: "#a0522d", // Bronze
       benefits: [
         "Premium job postings with highlights",
         "Extended job post visibility",
@@ -49,14 +54,14 @@ function SponsorshipPage() {
         "Monthly community updates",
         "Recognition in sponsor directory"
       ],
-      buttonText: "CLICK HERE",
+      buttonText: "Message on Slack",
     },
     {
       icon: "❤️",
-      title: "Generous Individual",
+      title: "Generous Sponsor",
       price: "$13+",
       period: "year",
-      accentColor: "#fb7185", // rose-400
+      accentColor: "#fb7185", // Rose-400
       benefits: [
         "Sponsor your own seat ($13/year)",
         "Sponsor additional seats for others",
@@ -65,14 +70,14 @@ function SponsorshipPage() {
         "Exclusive generous contributor badge",
         "Early access to community events"
       ],
-      buttonText: "CLICK HERE",
+      buttonText: "Message on Slack",
     },
     {
       icon: "👤", 
-      title: "Individual Member",
+      title: "Individual Sponsor",
       price: "$13",
       period: "year",
-      accentColor: "#94a3b8", // slate-400
+      accentColor: "#4338ca", // Indigo-700
       benefits: [
         "Sponsor your own Slack seat",
         "Support community sustainability",
@@ -81,7 +86,7 @@ function SponsorshipPage() {
         "Voting rights on community decisions",
         "Pride in supporting local tech"
       ],
-      buttonText: "CLICK HERE",
+      buttonText: "Message on Slack",
     }
   ];
 
@@ -115,7 +120,7 @@ function SponsorshipPage() {
           Join hundreds of companies and individuals who believe in the power of South African tech talent. 
           Together, we're building a stronger, more connected tech ecosystem.
         </p>
-        <a href="#" className="cta-link">Get In Touch →</a>
+        <a href={slackLink} target="_blank" rel="noopener noreferrer" className="cta-link">Get in touch with an admin on Slack →</a>
       </div>
     </div>
   );

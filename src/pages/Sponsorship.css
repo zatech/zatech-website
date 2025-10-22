@@ -38,20 +38,26 @@
   text-align: left;
 }
 
+.mission-section:hover{
+  box-shadow: var(--shadow-md); 
+  transform: translateY(-2px); 
+}
+
 .mission-section h2 {
-  font-size: 2rem;
-  color: var(--text-strong);
-  font-weight: 700;
   margin: 0 0 24px;
+  font-size: 2rem;
+  color: #2d3748;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
   line-height: 1.2;
 }
 
+
 .mission-section p {
   font-size: 1rem;
-  color: var(--text-primary);
+  color: #4a5568;
   line-height: 1.6;
   margin: 0;
-  font-weight: 400;
 }
 
 .why-sponsor {
@@ -88,19 +94,24 @@
   border: 1px solid var(--border);
 }
 
+.bottom-cta:hover {
+  box-shadow: var(--shadow-md); 
+  transform: translateY(-2px); 
+}
+
 .bottom-cta h2 {
   margin: 0 0 24px;
-  color: var(--text-strong);
   font-size: 2rem;
+  color: #2d3748;
   font-weight: 700;
+  margin-bottom: 1.5rem;
   line-height: 1.2;
 }
 
 .bottom-cta p {
   margin: 0 0 32px;
-  color: var(--text-primary);
   font-size: 1rem;
-  font-weight: 400;
+  color: #4a5568;
   line-height: 1.6;
 }
 
@@ -113,7 +124,9 @@
   transition: color 0.2s ease;
 }
 
-.cta-link:hover { color: var(--text-muted); }
+.cta-link:hover { 
+  color: var(--brand-orange);  
+}
 
 /* Responsive adjustments */
 @media (max-width: 1400px) {
