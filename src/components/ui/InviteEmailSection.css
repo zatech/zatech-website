@@ -142,18 +142,20 @@
   padding: 0.85rem 1.7rem;
   border-radius: 8px;
   background: var(--brand-orange);
-  color: #ffffff;
+  color: #1a1206;
   font-weight: 600;
   font-size: 0.9rem;
   text-decoration: none;
   transition: all 0.3s ease;
   box-shadow: 0 2px 8px rgba(162, 79, 0, 0.25);
+  border: 1px solid rgba(0, 0, 0, 0.12);
   white-space: nowrap;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.35);
 }
 
 .mailto-button:hover {
   background: var(--brand-orange-hover);
-  color: #fff;
+  color: #120a02;
   transform: translateY(-1px);
   box-shadow: 0 4px 12px rgba(162, 79, 0, 0.4);
 }

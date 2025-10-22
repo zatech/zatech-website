@@ -90,10 +90,12 @@
 }
 
 .youtube-link {
-  color: var(--brand-orange);
-  text-decoration: none;
+  color: #1a1206;
   font-weight: 600;
-  font-size: 1.1rem;
+  font-size: 1.05rem;
+  text-decoration: underline;
+  text-decoration-color: rgba(246, 133, 4, 0.5);
+  text-underline-offset: 4px;
   transition: color 0.3s ease;
 }
 

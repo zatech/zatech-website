@@ -64,31 +64,36 @@
   transform: translateY(-2px); 
 }
 
-.card-large-image {
+.card-media {
   width: 100%;
-  height: auto;
+  aspect-ratio: 16 / 10;
+  background: var(--surface-muted);
+  border-bottom: 1px solid var(--border);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-media picture,
+.card-media img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  background: #fff;
   display: block;
-  flex-shrink: 0;
 }
 
-/* Card 1 (Why Join) - larger image */
-.card-1 .card-large-image {
-  max-height: 280px;
-  padding: 20px;
-  object-fit: contain;
+.card-media--contain {
+  padding: 24px;
 }
 
-/* Card 4 (Events) - fit image better, remove excess padding */
-.card-4 .card-large-image {
-  max-height: 200px;
-  padding: 12px 20px 8px;
+.card-media--contain picture,
+.card-media--contain img {
   object-fit: contain;
 }
 
 .card-large-content {
-  padding: 24px;
+  padding: 28px 28px 32px;
   flex-grow: 1;
   display: flex;
   flex-direction: column;
@@ -175,12 +180,8 @@
     font-size: 1.2rem; 
   }
 
-  .card-1 .card-large-image {
-    max-height: 240px;
-  }
-
-  .card-4 .card-large-image {
-    max-height: 180px;
+  .card-media {
+    aspect-ratio: 16 / 11;
   }
 }
 
@@ -221,14 +222,12 @@
     grid-row: auto; 
   }
 
-  .card-1 .card-large-image,
-  .card-4 .card-large-image {
-    max-height: 200px;
-    padding: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
+  .card-media {
+    aspect-ratio: 16 / 11;
+  }
+
+  .card-media--contain {
+    padding: 18px;
   }
 
   .card-large-content { 
@@ -268,14 +267,12 @@
     font-size: 1rem; 
   }
 
-  .card-1 .card-large-image,
-  .card-4 .card-large-image {
-    max-height: 160px;
-    padding: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
+  .card-media {
+    aspect-ratio: 16 / 12;
+  }
+
+  .card-media--contain {
+    padding: 16px;
   }
 
   .card-large-content {

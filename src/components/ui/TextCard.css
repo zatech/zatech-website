@@ -36,8 +36,12 @@
 }
 
 .text-highlight {
-  color: var(--brand-orange);
-  font-weight: 600;
+  font-weight: 700;
+  color: #050505;
+  text-decoration: underline;
+  text-decoration-color: rgba(246, 133, 4, 0.5);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
 }
 
 /* Grid positioning */

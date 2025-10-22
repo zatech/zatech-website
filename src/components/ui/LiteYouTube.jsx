@@ -1,9 +1,9 @@
 import { useCallback, useState } from 'react';
 import PropTypes from 'prop-types';
+import PreviewImage from '../../assets/images/about-video-preview.webp';
 
 const LiteYouTube = ({ videoId, title, className }) => {
   const [isPlaying, setIsPlaying] = useState(false);
-  const thumbnail = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
 
   const handlePlay = useCallback(() => {
     setIsPlaying(true);
@@ -27,8 +27,8 @@ const LiteYouTube = ({ videoId, title, className }) => {
           aria-label={`Play video: ${title}`}
         >
           <img
-            src={thumbnail}
-            alt=""
+            src={PreviewImage}
+            alt={title}
             loading="lazy"
             decoding="async"
             width="1280"

@@ -3,10 +3,17 @@ import { Suspense, lazy } from "react";
 import Navbar from "./components/common/Navbar";
 import Footer from "./components/common/Footer";
 import ErrorBoundary from "./components/common/ErrorBoundary";
-import './App.css'
+import appStyles from "./App.css?inline";
 
 const Home = lazy(() => import("./pages/Home"));
 const SponsorshipPage = lazy(() => import("./pages/Sponsorship"));
+
+if (typeof document !== "undefined" && !document.querySelector('style[data-app-styles="true"]')) {
+  const styleTag = document.createElement("style");
+  styleTag.setAttribute("data-app-styles", "true");
+  styleTag.textContent = appStyles;
+  document.head.appendChild(styleTag);
+}
 
 function App() {
 
