@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import './TextCard.css';
 
+// TextCard component to display a card with title, content, and optional highlighted text
 function TextCard({ title, content, highlight, highlightHref, gridArea }) {
   return (
     <div className={`text-card ${gridArea ? `grid-area-${gridArea}` : ''}`}>
@@ -35,6 +36,7 @@ function TextCard({ title, content, highlight, highlightHref, gridArea }) {
   );
 }
 
+// Prop types validation
 TextCard.propTypes = {
   title: PropTypes.string.isRequired,
   content: PropTypes.string.isRequired,

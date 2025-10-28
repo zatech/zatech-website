@@ -1,126 +1,49 @@
+import { useTranslation } from 'react-i18next';
 import SponsorshipCard from '../components/ui/SponsorshipCard';
 import './Sponsorship.css';
 
 function SponsorshipPage() {
+  const { t } = useTranslation('sponsorship');
 
-  // Slack admin contact link
-  const slackContactId = "U896THM5J";
-  const slackLink = `https://zatech.slack.com/team/${slackContactId}`
+  // Get Slack admin contact from translations
+  const slackContactId = t('config.slackContactId');
+  const slackLink = `https://zatech.slack.com/team/${slackContactId}`;
 
-  const tiers = [
-    {
-      icon: "🏆",
-      title: "Gold Sponsor",
-      price: "$2,000",
-      period: "year",
-      accentColor: "#f59e0b", // Amber-500
-      benefits: [
-        "Weekly shoutout in #announcements",
-        "Reach 17,000 members, 2,000 active",
-        "Custom call-to-action message",
-        "Priority placement in job postings",
-        "Direct access to community insights",
-        "Company logo on community resources"
-      ],
-      buttonText: "Message on Slack",
-    },
-    {
-      icon: "🥈",
-      title: "Silver Sponsor",
-      price: "$1,000",
-      period: "year",
-      accentColor: "#94a3b8", // Slate-400
-      benefits: [
-        "Weekly shoutout in #developers OR #startups",
-        "Reach 4,000 developers or 2,000 startup members",
-        "Custom call-to-action message",
-        "Enhanced job posting features",
-        "Quarterly community analytics",
-        "Company mention in newsletters"
-      ],
-      buttonText: "Message on Slack",
-    },
-    {
-      icon: "🥉", 
-      title: "Bronze Sponsor",
-      price: "$500",
-      period: "year",
-      accentColor: "#a0522d", // Bronze
-      benefits: [
-        "Premium job postings with highlights",
-        "Extended job post visibility",
-        "Company logo in job listings",
-        "Access to talent pipeline insights",
-        "Monthly community updates",
-        "Recognition in sponsor directory"
-      ],
-      buttonText: "Message on Slack",
-    },
-    {
-      icon: "❤️",
-      title: "Generous Sponsor",
-      price: "$13+",
-      period: "year",
-      accentColor: "#fb7185", // Rose-400
-      benefits: [
-        "Sponsor your own seat ($13/year)",
-        "Sponsor additional seats for others",
-        "Recognition on our community wiki",
-        "Optional GitHub/LinkedIn profile link",
-        "Exclusive generous contributor badge",
-        "Early access to community events"
-      ],
-      buttonText: "Message on Slack",
-    },
-    {
-      icon: "👤", 
-      title: "Individual Sponsor",
-      price: "$13",
-      period: "year",
-      accentColor: "#4338ca", // Indigo-700
-      benefits: [
-        "Sponsor your own Slack seat",
-        "Support community sustainability",
-        "Member contributor badge",
-        "Access to all community channels",
-        "Voting rights on community decisions",
-        "Pride in supporting local tech"
-      ],
-      buttonText: "Message on Slack",
-    }
-  ];
+  // Get tiers from translations
+  const tiers = t('tiers', { returnObjects: true });
 
   return (
     <div className="sponsorship-page">
       {/* Header section */}
       <div className="page-header">
-        <h1>ZATech Sponsorship</h1>
-        <p className="subtitle">Supporting South Africa's Tech Community</p>
+        <h1>{t('header.title')}</h1>
+        <p className="subtitle">{t('header.subtitle')}</p>
       </div>
 
       {/* Mission section */}
       <div className="mission-section">
-        <h2>Our Mission</h2>
+        <h2>{t('mission.title')}</h2>
         <p>
-          ZATech is South Africa's largest tech community, connecting developers, entrepreneurs, and innovators across the rainbow nation. We're raising <strong>$20,000 per year</strong> to cover our Slack infrastructure costs and keep our community thriving. Your sponsorship directly supports knowledge sharing, networking, and career growth for thousands of South African tech professionals.
+          {t('mission.description')}
         </p>
       </div>
 
       {/* Main sponsorship tiers */}
       <div className="tiers-container">
-        {tiers.map(tier => (
+        {Array.isArray(tiers) && tiers.map(tier => (
           <SponsorshipCard key={tier.title} {...tier} />
         ))}
       </div>
 
       {/* Bottom call-to-action */}
       <div className="bottom-cta">
-        <h2>Ready to Support ZATech?</h2>
+        <h2>{t('cta.title')}</h2>
         <p>
-          Join hundreds of companies and individuals who believe in the power of South African tech talent. 
-          Together, we're building a stronger, more connected tech ecosystem.
+          {t('cta.description')}
         </p>
-        <a href={slackLink} target="_blank" rel="noopener noreferrer" className="cta-link">Get in touch with an admin on Slack →</a>
+        <a href={slackLink} target="_blank" rel="noopener noreferrer" className="cta-link">
+          {t('cta.linkText')}
+        </a>
       </div>
     </div>
   );

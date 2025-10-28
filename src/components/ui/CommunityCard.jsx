@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import './CommunityCard.css';
 
+// CommunityCard component to display community information
 function CommunityCard({ title, content, image, imageAlt }) {
   return (
     <div className="community-card">
@@ -13,6 +14,7 @@ function CommunityCard({ title, content, image, imageAlt }) {
   );
 }
 
+// Prop types validation
 CommunityCard.propTypes = {
   title: PropTypes.string.isRequired,
   content: PropTypes.string.isRequired,

@@ -1,17 +1,22 @@
 import PropTypes from 'prop-types';
+import { useTranslation } from 'react-i18next';
 import './AboutSection.css';
 import LiteYouTube from './LiteYouTube';
 
+// Preload the YouTube video iframe for performance
 function AboutSection({ className }) {
+  const { t } = useTranslation('aboutSection');
+  
+  // Preload YouTube iframe
   return (
     <section id="about" className={`about-section ${className || ''}`.trim()}>
-      <h2>About Us</h2>
-      <p>Here's a four-minute video with some more information about who we are and a look inside our Slack group.</p>
+      <h2>{t('title')}</h2>
+      <p>{t('intro')}</p>
 
       <div className="about-video">
         <LiteYouTube
           videoId="Ze_C-Fwz_Ec"
-          title="ZATech Video"
+          title={t('videoTitle')}
           className="about-video-player"
         />
         <a
@@ -20,17 +25,18 @@ function AboutSection({ className }) {
           rel="noreferrer"
           className="youtube-link"
         >
-          Watch on YouTube
+          {t('youtubeLink')}
         </a>
         <div className="about-card">
-          <h3>How we started</h3>
-          <p>Founded in 2015, ZATech started as a small Slack group and has grown into South Africa's largest tech community. We connect software engineers, product managers, UX designers, and entrepreneurs who share a passion for tech and innovation.</p>
+          <h3>{t('card.title')}</h3>
+          <p>{t('card.text')}</p>
         </div>
       </div>
     </section>
   );
 }
 
+// Prop types validation
 AboutSection.propTypes = {
   className: PropTypes.string,
 };
