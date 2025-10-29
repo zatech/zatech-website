@@ -20,7 +20,7 @@ function Footer({ className }) {
         <div className="footer-bottom-links">
           <Link to="/privacy">Privacy Policy</Link>
           <a
-            href="https://zatech.co.za/coc"
+            href="https://github.com/zatech/code-of-conduct"
             target="_blank"
             rel="noreferrer"
             aria-label="Code of Conduct"
@@ -30,7 +30,7 @@ function Footer({ className }) {
         </div>
         <div className="footer-socials" aria-label="Social Media Links">
           <a
-            href="https://github.com/Accompany-VC/zatech-website"
+            href="https://github.com/zatech"
             target="_blank"
             rel="noreferrer"
             aria-label="GitHub"

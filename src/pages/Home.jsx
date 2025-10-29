@@ -13,10 +13,7 @@ import WhyJoinImage from "../assets/images/why-join.optimized.jpg";
 import WhyJoinImageWebp from "../assets/images/why-join.optimized.webp";
 import WhyJoinImageSmall from "../assets/images/why-join.640w.jpg";
 import WhyJoinImageSmallWebp from "../assets/images/why-join.640w.webp";
-import EventsImage from "../assets/images/events.optimized.jpg";
-import EventsImageWebp from "../assets/images/events.optimized.webp";
-import EventsImageSmall from "../assets/images/events.700w.jpg";
-import EventsImageSmallWebp from "../assets/images/events.700w.webp";
+import NewEventsImage from "../assets/images/new-events-image.png";
 import scrollSectionIntoView from "../utils/scrollToSection";
 import { useLocation, useNavigate } from "react-router-dom";
 
@@ -58,7 +55,7 @@ export default function Home() {
         <div className="community-grid-new">
           {/* Card 1: Why Join (spans rows 1-2) */}
           <div className="community-card-large card-1">
-            <div className="card-media card-media--contain">
+            <div className="card-media">
               <picture>
                 <source
                   srcSet={`${WhyJoinImageSmallWebp} 640w, ${WhyJoinImageWebp} 1200w`}
@@ -124,27 +121,15 @@ export default function Home() {
           {/* Card 4: Events and Jobs */}
           <div className="community-card-large card-4">
             <div className="card-media">
-              <picture>
-                <source
-                  srcSet={`${EventsImageSmallWebp} 700w, ${EventsImageWebp} 1600w`}
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  type="image/webp"
-                />
-                <source
-                  srcSet={`${EventsImageSmall} 700w, ${EventsImage} 1600w`}
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  type="image/jpeg"
-                />
                 <img
-                  src={EventsImageSmall}
-                  alt={t('images.eventsJobsAlt')}
+                  src={NewEventsImage}
+                  alt={t("images.eventsJobsAlt")}
                   className="card-large-image"
                   loading="lazy"
                   decoding="async"
                   width="700"
                   height="362"
                 />
-              </picture>
             </div>
             <div className="card-large-content">
               <h3>{t('community.eventsJobs.title')}</h3>
