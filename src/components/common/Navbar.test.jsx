@@ -36,6 +36,7 @@ const renderNavbar = (props = {}) => {
   )
 }
 
+// Test suite for Navbar component
 describe('Navbar', () => {
   beforeEach(() => {
     vi.clearAllMocks()
@@ -52,9 +53,11 @@ describe('Navbar', () => {
     })
   })
 
+  // Test cases
   it('should render all navigation links', () => {
     renderNavbar()
     
+    // Check for presence of all nav links
     expect(screen.getByText('ZATech')).toBeInTheDocument()
     expect(screen.getByText('Home')).toBeInTheDocument()
     expect(screen.getByText('Sponsorship')).toBeInTheDocument()
@@ -65,6 +68,7 @@ describe('Navbar', () => {
     expect(screen.getByText('Request Invite →')).toBeInTheDocument()
   })
 
+  // Test case for Home link click on homepage
   it('should handle Home link click on homepage', async () => {
     const user = userEvent.setup()
     renderNavbar()
@@ -75,6 +79,7 @@ describe('Navbar', () => {
     expect(window.scrollTo).toHaveBeenCalledWith({ top: 0, behavior: 'smooth' })
   })
 
+  // Test case for About link click
   it('should handle About link click', async () => {
     const user = userEvent.setup()
     
@@ -95,6 +100,7 @@ describe('Navbar', () => {
     document.body.removeChild(aboutSection)
   })
 
+  // Test case for FAQ link click
   it('should handle Sponsorship link click', async () => {
     const user = userEvent.setup()
     
@@ -129,11 +135,9 @@ describe('Navbar', () => {
     
     // Click logo to open menu
     await user.click(logo)
-    
-    // Check if menu opened (this test depends on the DOM structure)
-    // In a real app, you might add data-testid attributes for easier testing
   })
 
+  // Test case for external links
   it('should render external links with correct attributes', () => {
     renderNavbar()
     
@@ -148,6 +152,7 @@ describe('Navbar', () => {
     expect(cocLink).toHaveAttribute('rel', 'noreferrer')
   })
 
+  // Test case for invite button link
   it('should render invite button with correct link', () => {
     renderNavbar()
     
@@ -155,6 +160,7 @@ describe('Navbar', () => {
     expect(inviteButton).toHaveAttribute('href', '#invite-email')
   })
 
+  // Test case for custom className prop
   it('should apply custom className when provided', () => {
     const { container } = renderNavbar({ className: 'custom-navbar' })
     const navbar = container.querySelector('.navbar')
@@ -162,6 +168,7 @@ describe('Navbar', () => {
     expect(navbar).toHaveClass('custom-navbar')
   })
 
+  // Test case for keyboard navigation
   it('should handle keyboard navigation', async () => {
     const user = userEvent.setup()
     renderNavbar()
@@ -176,6 +183,7 @@ describe('Navbar', () => {
     expect(screen.getByText('Home')).toHaveFocus()
   })
 
+  // Test case for closing mobile menu on link click
   it('should close mobile menu when navigation link is clicked', async () => {
     const user = userEvent.setup()
     
@@ -197,7 +205,5 @@ describe('Navbar', () => {
     // Click a navigation link
     await user.click(sponsorshipLink)
     
-    // Menu should close (in a real implementation, you'd check the state)
-    // This test would need to verify the menu closes after navigation
   })
 })

@@ -18,10 +18,12 @@
     "test:all": "npm run test:run && npm run test:e2e"
   },
   "dependencies": {
+    "i18next": "^25.6.0",
     "lucide-react": "^0.544.0",
     "prop-types": "^15.8.1",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
+    "react-i18next": "^16.2.1",
     "react-router-dom": "^7.9.1"
   },
   "devDependencies": {

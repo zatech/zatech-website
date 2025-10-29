@@ -2,15 +2,15 @@
 
 A modern, responsive community platform built with React 19 and Vite, featuring comprehensive testing, cross-browser compatibility, and enterprise-grade security.
 
-## ✨ Features
+## Features
 
-- 🌐 **Responsive Design** – Mobile-first layout with smooth in-page navigation
-- 🧪 **Automated Testing** – Unit and Playwright coverage for critical journeys
-- 📱 **Cross-Browser Support** – Chrome, Firefox, Safari (desktop + mobile)
-- ⚡ **Modern Stack** – React 19, Vite, Playwright, and Vitest
-- 🛡️ **Built-In Security** – Strict Content Security Policy and lazy loading for heavy sections
+- Responsive Design – Mobile-first layout with smooth in-page navigation
+- Automated Testing – Unit and Playwright coverage for critical journeys
+- Cross-Browser Support – Chrome, Firefox, Safari (desktop + mobile)
+- Modern Stack – React 19, Vite, Playwright, and Vitest
+- Built-In Security – Strict Content Security Policy and lazy loading for heavy sections
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Prerequisites
 - Node.js 18+ 
@@ -32,8 +32,7 @@ npm run dev
 ### Environment Variables
 None required for local development.
 
-## 🏗️ Project Structure
-
+## Project Structure
 ```
 zatech-website/
 ├── public/                       # Static assets served directly
@@ -58,7 +57,7 @@ zatech-website/
 └── README.md                    # This file
 ```
 
-## 🔧 Development
+## Development
 
 ### Available Scripts
 ```bash
@@ -90,22 +89,22 @@ npm run dev
 # - Rate limiting status
 ```
 
-## 🧪 Testing Cheat Sheet
+## Testing Cheat Sheet
 
 ### Quick Test Commands
 ```bash
-# 🚀 FULL TEST SUITE (Run this before commits)
+# FULL TEST SUITE (Run this before commits)
 npm run test:run && npm run test:e2e && npm run lint && npm audit
 
-# 🏃‍♂️ QUICK DEV CHECKS (During development)
+# QUICK DEV CHECKS (During development)
 npm run test:run    # Unit tests only (fast ~1-2 seconds)
 npm run lint        # Code quality check (~1 second)
 npm run dev         # Start dev server
 
-# 🌐 CROSS-BROWSER TESTING (Before releases)
+# CROSS-BROWSER TESTING (Before releases)
 npm run test:e2e    # Full browser compatibility (~10-30 seconds)
 
-# 🔒 SECURITY CHECK
+# SECURITY CHECK
 npm audit           # Check for vulnerabilities
 ```
 
@@ -115,7 +114,7 @@ npm audit           # Check for vulnerabilities
 | **Add new component** | `npm run test:run` | Verify existing tests still pass |
 | **Change existing code** | `npm run test:run` | Check for regressions |
 | **Add new CSS/styles** | `npm run lint` | Catch style issues early |
-| **Before committing** | Full test suite ⬆️ | Ensure nothing is broken |
+| **Before committing** | Full test suite | Ensure nothing is broken |
 | **Add new dependencies** | `npm audit` | Security check |
 | **Test mobile/responsive** | `npm run dev -- --host 0.0.0.0` | Test on phone |
 | **Before deployment** | `npm run test:e2e` | Cross-browser verification |
@@ -147,7 +146,7 @@ npm run dev -- --host 0.0.0.0
 # (Check terminal output for exact IP address)
 ```
 
-## 🛡️ Security & Quality
+## Security & Quality
 
 ### Security Features
 - **Content Security Policy (CSP)**: Browser-level guardrails for third-party content
@@ -167,7 +166,7 @@ Configured via `.browserslistrc`:
 - iOS Safari 14+, Android Chrome 88+
 - Modern JavaScript features with graceful degradation
 
-## 🤝 Contributing
+## Contributing
 
 1. Fork the repository
 2. Create a feature branch (`git checkout -b feature/amazing-feature`)
@@ -184,23 +183,23 @@ Configured via `.browserslistrc`:
 - Update documentation for significant changes
 - Follow security patterns established in the codebase
 
-## 🏆 Technical Achievements
+## Technical Achievements
 
 This project demonstrates production-grade development practices:
 
-- ✅ **Modern React Architecture** - Hooks, components, routing
-- ✅ **Comprehensive Testing** - Unit, integration, E2E, cross-browser
-- ✅ **Security First** - Multiple layers of protection
-- ✅ **Performance Optimized** - Fast builds, optimized bundles
-- ✅ **Mobile Ready** - Responsive design, touch-friendly
-- ✅ **Developer Experience** - Hot reload, linting, type safety
-- ✅ **Production Ready** - Build optimization, error handling
+- Modern React Architecture - Hooks, components, routing
+- Comprehensive Testing - Unit, integration, E2E, cross-browser
+- Security First - Multiple layers of protection
+- Performance Optimized - Fast builds, optimized bundles
+- Mobile Ready - Responsive design, touch-friendly
+- Developer Experience - Hot reload, linting, type safety
+- Production Ready - Build optimization, error handling
 
-## 📄 License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🆘 Support & Resources
+## Support & Resources
 
 - **Documentation**: This README covers all major aspects
 - **Issues**: Report bugs via [GitHub Issues](https://github.com/Accompany-VC/zatech-website/issues)
@@ -209,4 +208,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-Built with ❤️ for the South African tech community
+Built with love for the South African tech community

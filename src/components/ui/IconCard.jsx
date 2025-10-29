@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import './IconCard.css';
 import scrollSectionIntoView from '../../utils/scrollToSection';
 
+// IconCard component to display an icon with title, content, and optional button
 function IconCard({ icon, title, content, buttonText, buttonLink }) {
   const handleButtonClick = (event) => {
     if (!buttonLink || !buttonLink.startsWith('#')) return;
@@ -29,6 +30,7 @@ function IconCard({ icon, title, content, buttonText, buttonLink }) {
   );
 }
 
+// Prop types validation
 IconCard.propTypes = {
   icon: PropTypes.node.isRequired,
   title: PropTypes.string.isRequired,

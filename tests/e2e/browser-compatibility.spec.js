@@ -1,5 +1,6 @@
 import { test, expect } from '@playwright/test';
 
+// E2E tests for cross-browser compatibility
 test.describe('Cross-Browser Compatibility', () => {
   test('works on Chrome, Firefox, and Safari', async ({ page, browserName }) => {
     console.log(`Testing on ${browserName}`);
@@ -12,7 +13,7 @@ test.describe('Cross-Browser Compatibility', () => {
     await page.goto('/sponsorship');
     await expect(page.getByRole('heading', { name: /Sponsorship/i })).toBeVisible();
     
-    console.log(`✅ ${browserName} compatibility confirmed`);
+    console.log(`${browserName} compatibility confirmed`);
   });
 
   test('CSS Grid works across browsers', async ({ page, browserName }) => {
@@ -25,7 +26,7 @@ test.describe('Cross-Browser Compatibility', () => {
     const cardCount = await gridContainer.locator('[class*="card-"]').count();
     expect(cardCount).toBeGreaterThan(0);
     
-    console.log(`✅ CSS Grid working in ${browserName}`);
+    console.log(`CSS Grid working in ${browserName}`);
   });
 
   test('responsive design works across viewports', async ({ page }) => {
@@ -55,6 +56,6 @@ test.describe('Cross-Browser Compatibility', () => {
     await page.goto('/sponsorship');
     await expect(page.getByRole('heading', { name: /Sponsorship/i })).toBeVisible();
     
-    console.log(`✅ Modern JS features working in ${browserName}`);
+    console.log(`Modern JS features working in ${browserName}`);
   });
 });

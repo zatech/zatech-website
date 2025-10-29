@@ -1,0 +1,26 @@
+{
+  "title": "Want an invite?",
+  "intro": "Email <1>invite@zatech.co.za</1> with a short introduction.",
+  "summary": "ZATech is invite-only to keep conversations high-signal. Include these essentials so the admin team can welcome you quickly.",
+  "steps": [
+    {
+      "title": "Who you are",
+      "detail": "Name, role, and where you're based."
+    },
+    {
+      "title": "Why you're keen",
+      "detail": "What you'd like to get from ZATech and how you heard about us."
+    },
+    {
+      "title": "Proof you're real",
+      "detail": "Link to LinkedIn, GitHub, a portfolio, or similar."
+    }
+  ],
+  "button": "Send Request Email",
+  "email": {
+    "to": "To: invite@zatech.co.za",
+    "subject": "Subject: ZATech invite request - ",
+    "thanks": "Thanks for your time!",
+    "regards": "Best regards"
+  }
+}

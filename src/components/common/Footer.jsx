@@ -2,6 +2,7 @@ import PropTypes from "prop-types";
 import { Github, Linkedin } from "lucide-react";
 import footerStyles from "./Footer.css?inline";
 
+// Inject footer styles into the document head
 if (typeof document !== "undefined" && !document.querySelector('style[data-footer-styles="true"]')) {
   const styleTag = document.createElement("style");
   styleTag.setAttribute("data-footer-styles", "true");
@@ -9,6 +10,7 @@ if (typeof document !== "undefined" && !document.querySelector('style[data-foote
   document.head.appendChild(styleTag);
 }
 
+// Footer component with social links and legal information
 function Footer({ className }) {
   return (
     <footer className={`main-footer ${className || ""}`.trim()}>
@@ -42,6 +44,7 @@ function Footer({ className }) {
   );
 }
 
+// Prop types for Footer component
 Footer.propTypes = {
   className: PropTypes.string,
 };
