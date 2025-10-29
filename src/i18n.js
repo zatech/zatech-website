@@ -7,6 +7,7 @@ import inviteSection from './locales/en/inviteSection.json';
 import sponsorship from './locales/en/sponsorship.json';
 import sponsorshipSection from './locales/en/sponsorshipSection.json';
 import home from './locales/en/home.json';
+import privacy from './locales/en/privacy.json';
 
 // Initialize i18next for internationalization support
 i18n
@@ -21,6 +22,7 @@ i18n
         sponsorship,
         sponsorshipSection,
         home,
+        privacy,
       },
     },
     lng: 'en',
@@ -33,6 +35,7 @@ i18n
       'sponsorship',
       'sponsorshipSection',
       'home',
+      'privacy',
     ],
     defaultNS: 'home',
     interpolation: {

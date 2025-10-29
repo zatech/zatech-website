@@ -1,0 +1,30 @@
+.privacy-page .container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 48px 16px;
+}
+
+.privacy-page h1 {
+  font-size: 2rem;
+  margin-bottom: 16px;
+}
+
+.privacy-page p {
+  line-height: 1.6;
+  color: var(--text-color, #222);
+}
+
+.privacy-card {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 28px;
+}
+
+@media (max-width: 768px) {
+  .privacy-page .container {
+    padding: 32px 16px;
+  }
+  .privacy-card {
+    padding: 20px;
+  }
+}

@@ -111,17 +111,7 @@ export default function Navbar({ className }) {
           >
             Wiki
           </a>
-          <a 
-            href="https://zatech.co.za/coc" 
-            target="_blank" 
-            rel="noreferrer" 
-            className="nav-link nav-link-external" 
-            onClick={handleNavClick()}
-          >
-            Code of Conduct
-          </a>
         </div>
-
         <a
           href="#invite-email"
           className="request-invite-btn"

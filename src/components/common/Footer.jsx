@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 import { Github, Linkedin } from "lucide-react";
 import footerStyles from "./Footer.css?inline";
 
@@ -17,9 +18,15 @@ function Footer({ className }) {
       <div className="footer-bottom">
         <p className="footer-disclaimer">© 2025 ZATech. All rights reserved.</p>
         <div className="footer-bottom-links">
-          <a href="#privacy">Privacy Policy</a>
-          <a href="#terms">Terms of Service</a>
-          <a href="#cookies">Cookies Settings</a>
+          <Link to="/privacy">Privacy Policy</Link>
+          <a
+            href="https://zatech.co.za/coc"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Code of Conduct"
+          >
+            Code of Conduct
+          </a>
         </div>
         <div className="footer-socials" aria-label="Social Media Links">
           <a
