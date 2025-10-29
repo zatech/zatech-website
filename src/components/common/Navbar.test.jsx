@@ -63,8 +63,7 @@ describe('Navbar', () => {
     expect(screen.getByText('Sponsorship')).toBeInTheDocument()
     expect(screen.getByText('About')).toBeInTheDocument()
     expect(screen.getByText('FAQ')).toBeInTheDocument()
-    expect(screen.getByText('Wiki')).toBeInTheDocument()
-    expect(screen.getByText('Code of Conduct')).toBeInTheDocument()
+  expect(screen.getByText('Wiki')).toBeInTheDocument()
     expect(screen.getByText('Request Invite →')).toBeInTheDocument()
   })
 
@@ -146,10 +145,8 @@ describe('Navbar', () => {
     expect(wikiLink).toHaveAttribute('target', '_blank')
     expect(wikiLink).toHaveAttribute('rel', 'noreferrer')
     
-    const cocLink = screen.getByText('Code of Conduct')
-    expect(cocLink).toHaveAttribute('href', 'https://zatech.co.za/coc')
-    expect(cocLink).toHaveAttribute('target', '_blank')
-    expect(cocLink).toHaveAttribute('rel', 'noreferrer')
+  // The Code of Conduct link was removed from the Navbar component.
+  // Only assert external Wiki link attributes here.
   })
 
   // Test case for invite button link
