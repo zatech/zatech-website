@@ -38,7 +38,7 @@ export default function Home() {
       }, 100);
     }
   }, [location, navigate]);
-
+// AI was used to assist in ensuring that the card layout matched or Design (Complex CSS Grid Layout with images and text).
   return (
     <div>
       <HeroSection />

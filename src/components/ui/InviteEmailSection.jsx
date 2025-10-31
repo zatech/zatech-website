@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { useTranslation, Trans } from "react-i18next";
 import "./InviteEmailSection.css";
 
+// AI helped to refine the animation logic for typing effect in the email preview.
 // Sample email data for typing animation
 const emailSamples = [
   {

@@ -10,7 +10,7 @@
   },
   "tiers": [
     {
-      "icon": "🏆",
+      "icon": "Trophy",
       "title": "Gold Sponsor",
       "price": "$2,000",
       "period": "year",
@@ -26,7 +26,7 @@
       "buttonText": "Message on Slack"
     },
     {
-      "icon": "🥈",
+      "icon": "Award",
       "title": "Silver Sponsor",
       "price": "$1,000",
       "period": "year",
@@ -42,7 +42,7 @@
       "buttonText": "Message on Slack"
     },
     {
-      "icon": "🥉",
+      "icon": "Medal",
       "title": "Bronze Sponsor",
       "price": "$500",
       "period": "year",
@@ -58,7 +58,7 @@
       "buttonText": "Message on Slack"
     },
     {
-      "icon": "❤️",
+      "icon": "Heart",
       "title": "Generous Sponsor",
       "price": "$13+",
       "period": "year",
@@ -74,7 +74,7 @@
       "buttonText": "Message on Slack"
     },
     {
-      "icon": "👤",
+      "icon": "User",
       "title": "Individual Sponsor",
       "price": "$13",
       "period": "year",

@@ -1,6 +1,7 @@
 const DEFAULT_OFFSET = 16;
 
 /**
+ * AI Was used to help with the smooth scrolling function implemented in the navbar.
  * Smoothly scrolls a section into view while accounting for the fixed navbar.
  * @param {string|HTMLElement} target - id string or element to scroll to.
  * @param {{ offset?: number, behavior?: ScrollBehavior }} options
