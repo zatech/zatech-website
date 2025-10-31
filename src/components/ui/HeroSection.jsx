@@ -4,6 +4,7 @@ import './HeroSection.css';
 import MapSVG from '../../assets/images/South_Africa_blank_map.svg';
 import scrollSectionIntoView from '../../utils/scrollToSection';
 
+// AI was used to help get the SVG preload code right to ensure optimal performance.
 // Preload the map SVG for performance
 if (typeof document !== 'undefined') {
   const existingPreload = document.head.querySelector(`link[rel="preload"][href="${MapSVG}"]`);

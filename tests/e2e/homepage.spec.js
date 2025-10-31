@@ -1,5 +1,6 @@
 import { test, expect } from '@playwright/test';
 
+// AI helped to generate E2E tests for homepage across browsers to ensure compatibility. 
 test.describe('Cross-Browser Homepage Tests', () => {
   test.beforeEach(async ({ page }) => {
     await page.goto('/');

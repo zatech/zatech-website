@@ -1,5 +1,6 @@
 import { test, expect } from '@playwright/test';
 
+// AI was helped to assist in writing these tests for extensive cross-browser compatibility checks
 // E2E tests for cross-browser compatibility
 test.describe('Cross-Browser Compatibility', () => {
   test('works on Chrome, Firefox, and Safari', async ({ page, browserName }) => {

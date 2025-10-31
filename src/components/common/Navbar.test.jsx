@@ -18,6 +18,8 @@ vi.mock('../../utils/scrollToSection.js', () => ({
   scrollSectionIntoView: vi.fn(),
 }))
 
+// AI Somewhat assisted in writing these Navbar tests well the initial setup their where
+// numerous change in requirements so the navbar and test where updated frequently.
 import { BrowserRouter } from 'react-router-dom'
 import Navbar from './Navbar.jsx'
 import scrollSectionIntoView from '../../utils/scrollToSection.js'
