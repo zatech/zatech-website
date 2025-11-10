@@ -1,7 +1,9 @@
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 import { Github, Linkedin } from "lucide-react";
 import footerStyles from "./Footer.css?inline";
 
+// Inject footer styles into the document head
 if (typeof document !== "undefined" && !document.querySelector('style[data-footer-styles="true"]')) {
   const styleTag = document.createElement("style");
   styleTag.setAttribute("data-footer-styles", "true");
@@ -9,6 +11,7 @@ if (typeof document !== "undefined" && !document.querySelector('style[data-foote
   document.head.appendChild(styleTag);
 }
 
+// Footer component with social links and legal information
 function Footer({ className }) {
   return (
     <footer className={`main-footer ${className || ""}`.trim()}>
@@ -32,13 +35,19 @@ function Footer({ className }) {
       <div className="footer-bottom">
         <p className="footer-disclaimer">© 2025 ZATech. All rights reserved.</p>
         <div className="footer-bottom-links">
-          <a href="#privacy">Privacy Policy</a>
-          <a href="#terms">Terms of Service</a>
-          <a href="#cookies">Cookies Settings</a>
+          <Link to="/privacy">Privacy Policy</Link>
+          <a
+            href="https://github.com/zatech/code-of-conduct"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Code of Conduct"
+          >
+            Code of Conduct
+          </a>
         </div>
         <div className="footer-socials" aria-label="Social Media Links">
           <a
-            href="https://github.com/Accompany-VC/zatech-website"
+            href="https://github.com/zatech"
             target="_blank"
             rel="noreferrer"
             aria-label="GitHub"
@@ -59,6 +68,7 @@ function Footer({ className }) {
   );
 }
 
+// Prop types for Footer component
 Footer.propTypes = {
   className: PropTypes.string,
 };

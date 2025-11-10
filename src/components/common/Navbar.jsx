@@ -4,6 +4,7 @@ import { useState } from "react";
 import navbarStyles from "./Navbar.css?inline";
 import scrollSectionIntoView from "../../utils/scrollToSection";
 
+// Inject navbar styles into the document head
 if (typeof document !== "undefined" && !document.querySelector('style[data-navbar-styles="true"]')) {
   const styleTag = document.createElement("style");
   styleTag.setAttribute("data-navbar-styles", "true");
@@ -11,6 +12,7 @@ if (typeof document !== "undefined" && !document.querySelector('style[data-navba
   document.head.appendChild(styleTag);
 }
 
+// Navbar component with responsive menu and section navigation
 export default function Navbar({ className }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const navigate = useNavigate();
@@ -42,6 +44,7 @@ export default function Navbar({ className }) {
     if (cb) cb(e);
   };
 
+  // Logo click behavior
   const handleLogoClick = (e) => {
     const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768;
     if (isMobile) {
@@ -57,6 +60,7 @@ export default function Navbar({ className }) {
     setMenuOpen(false);
   };
 
+  // Navbar JSX structure
   return (
     <nav className={`navbar ${className || ""}`.trim()}>
       <div className="navbar-container">
@@ -107,17 +111,7 @@ export default function Navbar({ className }) {
           >
             Wiki
           </a>
-          <a 
-            href="https://zatech.co.za/coc" 
-            target="_blank" 
-            rel="noreferrer" 
-            className="nav-link nav-link-external" 
-            onClick={handleNavClick()}
-          >
-            Code of Conduct
-          </a>
         </div>
-
         <a
           href="#invite-email"
           className="request-invite-btn"

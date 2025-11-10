@@ -1,7 +1,10 @@
 import { useEffect, useMemo, useState } from "react";
 import PropTypes from "prop-types";
+import { useTranslation, Trans } from "react-i18next";
 import "./InviteEmailSection.css";
 
+// AI helped to refine the animation logic for typing effect in the email preview.
+// Sample email data for typing animation
 const emailSamples = [
   {
     name: "Zinhle",
@@ -178,9 +181,11 @@ const emailSamples = [
   },
 ];
 
+// Time interval between sample switches (in ms)
 const SAMPLE_INTERVAL = 7000;
 const fieldsToType = ["name", "occupation", "location", "reason", "source", "linkLabel"];
 
+// Create a typed state slice for the given progress (0 to 1)
 const createTypedState = (sample, progress = 0) =>
   fieldsToType.reduce((acc, field) => {
     const fullText = sample[field] || "";
@@ -189,7 +194,9 @@ const createTypedState = (sample, progress = 0) =>
     return acc;
   }, { linkUrl: sample.linkUrl });
 
+// InviteEmailSection component to display the invite email section
 function InviteEmailSection({ className }) {
+  const { t } = useTranslation('inviteSection');
   const [sampleIndex, setSampleIndex] = useState(0);
   const [typedSample, setTypedSample] = useState(() => createTypedState(emailSamples[0], 1));
   const [isTyping, setIsTyping] = useState(false);
@@ -205,6 +212,7 @@ function InviteEmailSection({ className }) {
     return map;
   }, []);
 
+  // Cycle through samples at regular intervals
   useEffect(() => {
     const interval = setInterval(() => {
       setSampleIndex((current) => (current + 1) % emailSamples.length);
@@ -212,6 +220,7 @@ function InviteEmailSection({ className }) {
     return () => clearInterval(interval);
   }, []);
 
+  // Animate typing effect when sampleIndex changes
   useEffect(() => {
     const nextSample = emailSamples[sampleIndex];
     const startTime = performance.now();
@@ -225,7 +234,7 @@ function InviteEmailSection({ className }) {
       setIsTyping(progress < 1);
       if (progress < 1) rafId = requestAnimationFrame(animate);
     };
-
+    // Start the animation
     setIsTyping(true);
     setTypedSample(createTypedState(nextSample, 0));
     rafId = requestAnimationFrame(animate);
@@ -268,45 +277,26 @@ function InviteEmailSection({ className }) {
       <div className="invite-section-inner">
         <div className="invite-content-wrapper">
           <div className="invite-content">
-
             {/* LEFT SIDE */}
             <div className="invite-info">
-              <h2>Want an invite?</h2>
+              <h2>{t('title')}</h2>
               <p className="invite-email-line">
-                Email{" "}
-                <a className="invite-email" href="mailto:invite@zatech.co.za">
-                  invite@zatech.co.za
-                </a>{" "}
-                with a short introduction.
+                <Trans i18nKey="intro" ns="inviteSection">
+                  Email <a className="invite-email" href="mailto:invite@zatech.co.za">invite@zatech.co.za</a> with a short introduction.
+                </Trans>
               </p>
-
-              <p className="invite-summary">
-                ZATech is invite-only to keep conversations high-signal. Include these essentials so the
-                admin team can welcome you quickly.
-              </p>
-
+              <p className="invite-summary">{t('summary')}</p>
               <ol className="invite-steps">
-                <li>
-                  <span className="invite-step-title">Who you are</span>
-                  <span className="invite-step-detail">Name, role, and where you're based.</span>
-                </li>
-                <li>
-                  <span className="invite-step-title">Why you're keen</span>
-                  <span className="invite-step-detail">
-                    What you'd like to get from ZATech and how you heard about us.
-                  </span>
-                </li>
-                <li>
-                  <span className="invite-step-title">Proof you're real</span>
-                  <span className="invite-step-detail">
-                    Link to LinkedIn, GitHub, a portfolio, or similar.
-                  </span>
-                </li>
+                {t('steps', { returnObjects: true }).map((step, idx) => (
+                  <li key={idx}>
+                    <span className="invite-step-title">{step.title}</span>
+                    <span className="invite-step-detail">{step.detail}</span>
+                  </li>
+                ))}
               </ol>
-
               <div className="invite-actions">
                 <a className="mailto-button" href={mailtoLink}>
-                  Send Request Email
+                  {t('button')}
                 </a>
               </div>
             </div>
@@ -314,39 +304,38 @@ function InviteEmailSection({ className }) {
             {/* RIGHT SIDE */}
             <div className={`email-preview${isTyping ? " email-preview--typing" : ""}`}>
               <div className="email-header">
-                <p className="email-meta">To: invite@zatech.co.za</p>
+                <p className="email-meta">{t('email.to')}</p>
                 <p className="email-meta">
-                  Subject: ZATech invite request -{" "}
-                  <span className={tokenClass("name")} style={tokenStyle("name")}>
+                  {t('email.subject')}
+                  <span className={tokenClass("name")} style={tokenStyle("name")}> 
                     {displayValue("name") || sample.name}
                   </span>
                 </p>
               </div>
-
               <div className="email-body">
                 <p>
                   Hi, I'm{" "}
-                  <span className={tokenClass("name")} style={tokenStyle("name")}>
+                  <span className={tokenClass("name")} style={tokenStyle("name")}> 
                     {displayValue("name") || sample.name}
                   </span>
                   , a{" "}
-                  <span className={tokenClass("occupation")} style={tokenStyle("occupation")}>
+                  <span className={tokenClass("occupation")} style={tokenStyle("occupation")}> 
                     {displayValue("occupation") || sample.occupation}
                   </span>{" "}
                   based in{" "}
-                  <span className={tokenClass("location")} style={tokenStyle("location")}>
+                  <span className={tokenClass("location")} style={tokenStyle("location")}> 
                     {displayValue("location") || sample.location}
                   </span>.
                 </p>
                 <p>
                   I'd love to join ZATech to{" "}
-                  <span className={tokenClass("reason")} style={tokenStyle("reason")}>
+                  <span className={tokenClass("reason")} style={tokenStyle("reason")}> 
                     {displayValue("reason") || sample.reason}
                   </span>.
                 </p>
                 <p>
                   I heard about the community through{" "}
-                  <span className={tokenClass("source")} style={tokenStyle("source")}>
+                  <span className={tokenClass("source")} style={tokenStyle("source")}> 
                     {displayValue("source") || sample.source}
                   </span>.
                 </p>
@@ -354,17 +343,17 @@ function InviteEmailSection({ className }) {
                   You can check me out here:
                   <br />
                   <a href={sample.linkUrl} target="_blank" rel="noreferrer" className="email-link">
-                    <span className={tokenClass("linkLabel")} style={tokenStyle("linkLabel")}>
+                    <span className={tokenClass("linkLabel")} style={tokenStyle("linkLabel")}> 
                       {displayValue("linkLabel") || sample.linkLabel}
                     </span>
                     <span className="email-link-url">{sample.linkUrl}</span>
                   </a>
                 </p>
-                <p>Thanks for your time!</p>
+                <p>{t('email.thanks')}</p>
                 <p>
-                  Kind regards,
+                  {t('email.regards')}
                   <br />
-                  <span className={tokenClass("name")} style={tokenStyle("name")}>
+                  <span className={tokenClass("name")} style={tokenStyle("name")}> 
                     {displayValue("name") || sample.name}
                   </span>
                 </p>
@@ -378,6 +367,7 @@ function InviteEmailSection({ className }) {
   );
 }
 
+// Prop types validation
 InviteEmailSection.propTypes = {
   className: PropTypes.string,
 };

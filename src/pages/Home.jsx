@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import "./Home.css";
 import HeroSection from "../components/ui/HeroSection";
 import brandSlack from "../assets/icons/brand-slack.png";
@@ -12,15 +13,13 @@ import WhyJoinImage from "../assets/images/why-join.optimized.jpg";
 import WhyJoinImageWebp from "../assets/images/why-join.optimized.webp";
 import WhyJoinImageSmall from "../assets/images/why-join.640w.jpg";
 import WhyJoinImageSmallWebp from "../assets/images/why-join.640w.webp";
-import EventsImage from "../assets/images/events.optimized.jpg";
-import EventsImageWebp from "../assets/images/events.optimized.webp";
-import EventsImageSmall from "../assets/images/events.700w.jpg";
-import EventsImageSmallWebp from "../assets/images/events.700w.webp";
+import NewEventsImage from "../assets/images/new-events-image.png";
 import scrollSectionIntoView from "../utils/scrollToSection";
-
 import { useLocation, useNavigate } from "react-router-dom";
 
+// Home component representing the main landing page
 export default function Home() {
+  const { t } = useTranslation('home');
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -39,7 +38,7 @@ export default function Home() {
       }, 100);
     }
   }, [location, navigate]);
-
+// AI was used to assist in ensuring that the card layout matched or Design (Complex CSS Grid Layout with images and text).
   return (
     <div>
       <HeroSection />
@@ -47,17 +46,16 @@ export default function Home() {
       {/* Community Section */}
       <section className="community-section">
         <div className="community-section-header">
-          <h2>Join Our Community</h2>
+          <h2>{t('community.header.title')}</h2>
           <p>
-            Connect, collaborate, and grow with thousands of tech professionals
-            in South Africa.
+            {t('community.header.description')}
           </p>
         </div>
 
         <div className="community-grid-new">
           {/* Card 1: Why Join (spans rows 1-2) */}
           <div className="community-card-large card-1">
-            <div className="card-media card-media--contain">
+            <div className="card-media">
               <picture>
                 <source
                   srcSet={`${WhyJoinImageSmallWebp} 640w, ${WhyJoinImageWebp} 1200w`}
@@ -71,7 +69,7 @@ export default function Home() {
                 />
                 <img
                   src={WhyJoinImageSmall}
-                  alt="Why Join"
+                  alt={t('images.whyJoinAlt')}
                   className="card-large-image"
                   loading="lazy"
                   decoding="async"
@@ -81,13 +79,9 @@ export default function Home() {
               </picture>
             </div>
             <div className="card-large-content">
-              <h3>Why Join?</h3>
+              <h3>{t('community.whyJoin.title')}</h3>
               <p>
-                At ZATech, we bring together South Africa's brightest tech
-                minds. Join our Slack community and engage in meaningful
-                discussions, skill sharing, and networking. With hundreds of
-                channels covering everything from coding and startups to gaming
-                and mental health, there's a space for everyone.
+                {t('community.whyJoin.description')}
               </p>
             </div>
           </div>
@@ -98,13 +92,13 @@ export default function Home() {
               icon={
                 <img
                   src={brandSlack}
-                  alt="Slack"
+                  alt={t('images.slackAlt')}
                   style={{ width: 40, height: 40 }}
                 />
               }
-              title="Slack-Based Messaging"
-              content="Get your invite to our Slack workspace and join thousands of tech professionals in meaningful discussions, knowledge sharing, and networking."
-              buttonText="Get Started"
+              title={t('community.slackBased.title')}
+              content={t('community.slackBased.description')}
+              buttonText={t('community.slackBased.buttonText')}
               buttonLink="#invite-email"
             />
           </div>
@@ -115,46 +109,32 @@ export default function Home() {
               icon={
                 <img
                   src={usersGroup}
-                  alt="Users Group"
+                  alt={t('images.usersGroupAlt')}
                   style={{ width: 40, height: 40 }}
                 />
               }
-              title="Hundreds of Topics and Interests"
-              content="We have hundreds of channels organized around locations like #capetown, languages like #python, specializations like #aws, and even non-tech topics like #cooking."
+              title={t('community.topics.title')}
+              content={t('community.topics.description')}
             />
           </div>
 
           {/* Card 4: Events and Jobs */}
           <div className="community-card-large card-4">
             <div className="card-media">
-              <picture>
-                <source
-                  srcSet={`${EventsImageSmallWebp} 700w, ${EventsImageWebp} 1600w`}
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  type="image/webp"
-                />
-                <source
-                  srcSet={`${EventsImageSmall} 700w, ${EventsImage} 1600w`}
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  type="image/jpeg"
-                />
                 <img
-                  src={EventsImageSmall}
-                  alt="Events and Jobs"
+                  src={NewEventsImage}
+                  alt={t("images.eventsJobsAlt")}
                   className="card-large-image"
                   loading="lazy"
                   decoding="async"
                   width="700"
                   height="362"
                 />
-              </picture>
             </div>
             <div className="card-large-content">
-              <h3>Events, Job Postings, and More</h3>
+              <h3>{t('community.eventsJobs.title')}</h3>
               <p>
-                We organize and share meetups, exchange knowledge about
-                everything from tech to visas, and host active #jobpostings and
-                #freelance-jobpostings channels for finding work.
+                {t('community.eventsJobs.description')}
               </p>
             </div>
           </div>
@@ -162,28 +142,20 @@ export default function Home() {
           {/* Card 5: Some Things to Know */}
           <div className="card-5">
             <TextCard
-              title="Some Things to Know Before Joining"
-              content={`By joining, you agree to abide by the ZATech Code of Conduct. Please take a moment to read it and pay special attention to our specific rules about recruitment.
-
-The group is intended to be high signal, low noise. Think of it as an overlapping series of professional groups rather than IRC in the 90s.
-
-Be kind. Don't be snarky. Have curious conversations — don't cross-examine. Comments should become more thoughtful and substantive, not less, as a topic becomes more divisive.`}
-              highlight="ZATech Code of Conduct"
-              highlightHref="https://github.com/zatech/code-of-conduct"
+              title={t('community.thingsToKnow.title')}
+              content={t('community.thingsToKnow.content')}
+              highlight={t('community.thingsToKnow.highlight')}
+              highlightHref={t('community.thingsToKnow.highlightHref')}
             />
           </div>
 
           {/* Card 6: Request an Invite */}
           <div className="card-6">
             <TextCard
-              title="Request an Invite"
-              content={`We welcome nearly anyone to join our community, but to prevent spam we are invite-only.
-
-To request an invite, send an email to invite@zatech.co.za from an address you intend to use long term (not your work email — you'll be in this community for a long time). Include your name, occupation, a brief explanation of why you want to join, and how you heard about us.
-
-Finally, please include a link to your LinkedIn, Twitter, GitHub, or another site that shows you're a real person. None of the above information will be shared outside the admin team, who use it solely to assess your application. We approve 99% of applications and only reject spammers, scammers, and bots.`}
-              highlight="invite@zatech.co.za"
-              highlightHref="mailto:invite@zatech.co.za"
+              title={t('community.requestInvite.title')}
+              content={t('community.requestInvite.content')}
+              highlight={t('community.requestInvite.highlight')}
+              highlightHref={t('community.requestInvite.highlightHref')}
             />
           </div>
 

@@ -1,0 +1,101 @@
+{
+  "header": {
+    "title": "ZATech Sponsorship",
+    "subtitle": "Supporting South Africa's Tech Community"
+  },
+  "mission": {
+    "title": "Our Mission",
+    "description": "ZATech is South Africa's largest tech community, connecting developers, entrepreneurs, and innovators across the rainbow nation. We're raising $20,000 per year to cover our Slack infrastructure costs and keep our community thriving. Your sponsorship directly supports knowledge sharing, networking, and career growth for thousands of South African tech professionals.",
+    "amountStrong": "$20,000 per year"
+  },
+  "tiers": [
+    {
+      "icon": "Trophy",
+      "title": "Gold Sponsor",
+      "price": "$2,000",
+      "period": "year",
+      "accentColor": "#f59e0b",
+      "benefits": [
+        "Weekly shoutout in #announcements",
+        "Reach 17,000 members, 2,000 active",
+        "Custom call-to-action message",
+        "Priority placement in job postings",
+        "Direct access to community insights",
+        "Company logo on community resources"
+      ],
+      "buttonText": "Message on Slack"
+    },
+    {
+      "icon": "Award",
+      "title": "Silver Sponsor",
+      "price": "$1,000",
+      "period": "year",
+      "accentColor": "#94a3b8",
+      "benefits": [
+        "Weekly shoutout in #developers OR #startups",
+        "Reach 4,000 developers or 2,000 startup members",
+        "Custom call-to-action message",
+        "Enhanced job posting features",
+        "Quarterly community analytics",
+        "Company mention in newsletters"
+      ],
+      "buttonText": "Message on Slack"
+    },
+    {
+      "icon": "Medal",
+      "title": "Bronze Sponsor",
+      "price": "$500",
+      "period": "year",
+      "accentColor": "#a0522d",
+      "benefits": [
+        "Premium job postings with highlights",
+        "Extended job post visibility",
+        "Company logo in job listings",
+        "Access to talent pipeline insights",
+        "Monthly community updates",
+        "Recognition in sponsor directory"
+      ],
+      "buttonText": "Message on Slack"
+    },
+    {
+      "icon": "Heart",
+      "title": "Generous Sponsor",
+      "price": "$13+",
+      "period": "year",
+      "accentColor": "#fb7185",
+      "benefits": [
+        "Sponsor your own seat ($13/year)",
+        "Sponsor additional seats for others",
+        "Recognition on our community wiki",
+        "Optional GitHub/LinkedIn profile link",
+        "Exclusive generous contributor badge",
+        "Early access to community events"
+      ],
+      "buttonText": "Message on Slack"
+    },
+    {
+      "icon": "User",
+      "title": "Individual Sponsor",
+      "price": "$13",
+      "period": "year",
+      "accentColor": "#4338ca",
+      "benefits": [
+        "Sponsor your own Slack seat",
+        "Support community sustainability",
+        "Member contributor badge",
+        "Access to all community channels",
+        "Voting rights on community decisions",
+        "Pride in supporting local tech"
+      ],
+      "buttonText": "Message on Slack"
+    }
+  ],
+  "cta": {
+    "title": "Ready to Support ZATech?",
+    "description": "Join hundreds of companies and individuals who believe in the power of South African tech talent. Together, we're building a stronger, more connected tech ecosystem.",
+    "linkText": "Get in touch with an admin on Slack →"
+  },
+  "config": {
+    "slackContactId": "U896THM5J"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "title": "About Us",
+  "intro": "Here's a four-minute video with some more information about who we are and a look inside our Slack group.",
+  "videoTitle": "ZATech Video",
+  "youtubeLink": "Watch on YouTube",
+  "card": {
+    "title": "How we started",
+    "text": "Founded in 2015, ZATech started as a small Slack group and has grown into South Africa's largest tech community. We connect software engineers, product managers, UX designers, and entrepreneurs who share a passion for tech and innovation."
+  }
+}
