@@ -15,6 +15,23 @@ if (typeof document !== "undefined" && !document.querySelector('style[data-foote
 function Footer({ className }) {
   return (
     <footer className={`main-footer ${className || ""}`.trim()}>
+      <div className="footer-sponsorship">
+        <p className="sponsorship-text">Hosting sponsored by</p>
+        <a
+          href="https://www.namhost.com"
+          target="_blank"
+          rel="dofollow"
+          aria-label="Namhost - Fast, Affordable & Reliable Hosting"
+          className="sponsorship-link"
+        >
+          <img
+            src="/namhost-logo.svg"
+            alt="Namhost Logo"
+            className="sponsorship-logo"
+          />
+        </a>
+        <p className="sponsorship-tagline">Fast, Affordable & Reliable</p>
+      </div>
       <div className="footer-bottom">
         <p className="footer-disclaimer">© 2025 ZATech. All rights reserved.</p>
         <div className="footer-bottom-links">
